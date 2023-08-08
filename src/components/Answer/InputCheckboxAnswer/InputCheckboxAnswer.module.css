@@ -1,0 +1,20 @@
+.inputCheckboxAnswer_container {
+    @apply bg-gray-500 bg-opacity-30;
+    @apply text-sm;
+    @apply mt-2 p-2;
+    @apply min-w-[500px];
+    @apply rounded-md border-4;
+}
+
+.inputCheckboxAnswer_label {
+    @apply flex items-center;
+}
+
+.inputCheckboxAnswer_input {
+    @apply h-6 w-6;
+    @apply text-indigo-600;
+}
+
+.inputCheckboxAnswer_text {
+    @apply ml-4;
+}
