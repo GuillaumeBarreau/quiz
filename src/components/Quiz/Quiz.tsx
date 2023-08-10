@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react'
 import styles from './Quiz.module.css'
-import Answer from '@/components/Answer'
-import Status from '@/components/Status'
-import Header from '@/components/Header'
+import Answer from '@/components/Quiz/Answer'
+import Status from '@/components/Quiz/Status'
+import Header from '@/components/Quiz/Header'
 
 const Quiz = ({ questionsArray, questionsNumber }: any) => {
     const [questionNumber, setQuestionNumber] = useState(0)
@@ -79,37 +79,41 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
     const indexAnswer = questionsArray[questionNumber].position
 
     return (
-        <div className="min-h-screen p-8 flex flex-col justify-between items-center relative">
+        <div className="flex min-h-screen flex-col">
             <Header
                 currentQuestion={questionNumber}
                 maxQuestions={questionsNumber}
                 course={'Professional Scrum Developer I'}
             />
-            <div className="mt-16 mb-16">
-                <h1 className="text-xl">{question}</h1>
-                <br />
+            <div className="p-8 flex flex-col flex-1 justify-between items-center relative">
+                <div className="mt-16 mb-16">
+                    <h1 className="text-xl">{question}</h1>
+                    <br />
+                </div>
+                <div>
+                    <Answer
+                        handleClickSelectAnswers={handleClickSelectAnswers}
+                        optionAnswers={optionAnswers}
+                        selectAnswers={setAnswers}
+                        correctAnswer={correctAnswer}
+                        statusShown={statusShown}
+                        indexAnswer={indexAnswer}
+                    />
+                </div>
+                {!statusShown ? (
+                    <button
+                        onClick={handleButtonClick}
+                        disabled={setAnswers.length === 0}
+                        className={styles.quizButton}
+                    >
+                        {setAnswers.length === 0
+                            ? 'Select an answer'
+                            : 'Submit'}
+                    </button>
+                ) : (
+                    <Status correct={currentQuestionCorrect} />
+                )}
             </div>
-            <div>
-                <Answer
-                    handleClickSelectAnswers={handleClickSelectAnswers}
-                    optionAnswers={optionAnswers}
-                    selectAnswers={setAnswers}
-                    correctAnswer={correctAnswer}
-                    statusShown={statusShown}
-                    indexAnswer={indexAnswer}
-                />
-            </div>
-            {!statusShown ? (
-                <button
-                    onClick={handleButtonClick}
-                    disabled={setAnswers.length === 0}
-                    className={styles.quizButton}
-                >
-                    {setAnswers.length === 0 ? 'Select an answer' : 'Submit'}
-                </button>
-            ) : (
-                <Status correct={currentQuestionCorrect} />
-            )}
         </div>
     )
 }
