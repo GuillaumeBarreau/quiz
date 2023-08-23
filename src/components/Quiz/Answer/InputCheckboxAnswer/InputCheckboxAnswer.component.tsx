@@ -2,20 +2,37 @@ import { IInputCheckboxAnswer } from './InputCheckboxAnswer.d'
 import styles from './InputCheckboxAnswer.module.css'
 
 const InputCheckboxAnswer: React.FC<IInputCheckboxAnswer> = (props) => {
-    const { answer, handleClickSelectAnswers, style, disabled, selectAnswers } =
-        props
+    const {
+        answer,
+        handleClickSelectAnswers,
+        resultInputSelected,
+        disabled,
+        selectAnswers,
+    } = props
+
+    const isSelectAnswers = selectAnswers.includes(answer)
 
     return (
         <div
             className={`${styles.inputCheckboxAnswer_container} ${
-                style.border ? style.border : ''
+                isSelectAnswers
+                    ? `${styles.inputCheckboxAnswer_container__selected}`
+                    : ''
+            }${
+                resultInputSelected
+                    ? ` ${
+                          styles[
+                              `inputCheckboxAnswer_container__${resultInputSelected}`
+                          ]
+                      }`
+                    : ''
             }`}
         >
             <label className={styles.inputCheckboxAnswer_label}>
                 <input
                     type="checkbox"
                     className={styles.inputCheckboxAnswer_input}
-                    checked={selectAnswers.includes(answer)}
+                    checked={isSelectAnswers}
                     onChange={() => handleClickSelectAnswers(answer)}
                     disabled={disabled}
                 />

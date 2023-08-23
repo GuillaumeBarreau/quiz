@@ -4,13 +4,22 @@ import styles from './Quiz.module.css'
 import Answer from '@/components/Quiz/Answer'
 import Status from '@/components/Quiz/Status'
 import Header from '@/components/Quiz/Header'
+import Question from '@/components/Quiz/Question'
 
 const Quiz = ({ questionsArray, questionsNumber }: any) => {
     const [questionNumber, setQuestionNumber] = useState(0)
     const [numCorrect, setNumCorrect] = useState(0)
     const [statusShown, setStatusShown] = useState(false)
     const [currentQuestionCorrect, setCurrentQuestionCorrect] = useState(false)
-    const [setAnswers, setSetAnswers] = useState([])
+    const [answers, setAnswers] = useState([])
+    const [questionsIndexError, setQuestionsIndexError] = useState<number[]>([])
+
+    const question = questionsArray?.[questionNumber]?.question
+    const optionAnswers = questionsArray?.[questionNumber]?.answers
+    const correctAnswer = questionsArray?.[questionNumber]?.correctAnswer
+    const indexAnswer = questionsArray?.[questionNumber]?.position
+
+    const isLastQuestion = questionNumber === questionsArray.length
 
     const switchQuestionWithCorrectAnswer = 1000
     const switchQuestionWithWrongAnswer = 2000
@@ -26,13 +35,13 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
     }
 
     const handleClickSelectAnswers = (answer) => {
-        const index = setAnswers.indexOf(answer)
+        const index = answers.indexOf(answer)
         if (index !== -1) {
-            const newArray = [...setAnswers]
+            const newArray = [...answers]
             newArray.splice(index, 1)
-            setSetAnswers(newArray)
+            setAnswers(newArray)
         } else {
-            setSetAnswers([...setAnswers, answer])
+            setAnswers((answers) => [...answers, answer])
         }
     }
 
@@ -44,10 +53,14 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
                   questionsArray[questionNumber].correctAnswer.length
 
         if (status === 'correct') {
-            setNumCorrect(numCorrect + 1)
+            setNumCorrect((numCorrect) => numCorrect + 1)
             setCurrentQuestionCorrect(true)
         } else {
             setCurrentQuestionCorrect(false)
+            setQuestionsIndexError((questionsIndexError) => [
+                ...questionsIndexError,
+                questionNumber,
+            ])
         }
 
         setTimeout(() => {
@@ -57,7 +70,7 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
 
     const switchQuestion = () => {
         setStatusShown(false)
-        setSetAnswers([])
+        setAnswers([])
         setQuestionNumber((prevNumber) =>
             prevNumber < questionsNumber ? prevNumber + 1 : prevNumber
         )
@@ -66,54 +79,46 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
     const handleButtonClick = () => {
         setStatusShown(true)
 
-        const correctAnswer = questionsArray[questionNumber].correctAnswer
+        const correctAnswer = questionsArray?.[questionNumber]?.correctAnswer
 
-        compareArrays(correctAnswer, setAnswers)
+        compareArrays(correctAnswer, answers)
             ? setStatus('correct')
             : setStatus('wrong')
     }
-
-    const question = questionsArray[questionNumber].question
-    const optionAnswers = questionsArray[questionNumber].answers
-    const correctAnswer = questionsArray[questionNumber].correctAnswer
-    const indexAnswer = questionsArray[questionNumber].position
+    console.log('questionsError', questionsIndexError)
 
     return (
-        <div className="flex min-h-screen flex-col">
+        <div className={styles.quiz_container}>
             <Header
                 currentQuestion={questionNumber}
-                maxQuestions={questionsNumber}
+                maxQuestions={questionsArray.length}
                 course={'Professional Scrum Developer I'}
+                isLastQuestion={isLastQuestion}
             />
-            <div className="p-8 flex flex-col flex-1 justify-between items-center relative">
-                <div className="mt-16 mb-16">
-                    <h1 className="text-xl">{question}</h1>
-                    <br />
-                </div>
-                <div>
+            {question && (
+                <div className={styles.quiz_question_wrapper}>
+                    <Question question={question} />
                     <Answer
                         handleClickSelectAnswers={handleClickSelectAnswers}
                         optionAnswers={optionAnswers}
-                        selectAnswers={setAnswers}
+                        selectAnswers={answers}
                         correctAnswer={correctAnswer}
                         statusShown={statusShown}
                         indexAnswer={indexAnswer}
                     />
+                    {!statusShown ? (
+                        <button
+                            onClick={handleButtonClick}
+                            disabled={answers.length === 0}
+                            className={styles.quizButton}
+                        >
+                            {answers.length ? 'Submit' : 'Select an answer'}
+                        </button>
+                    ) : (
+                        <Status correct={currentQuestionCorrect} />
+                    )}
                 </div>
-                {!statusShown ? (
-                    <button
-                        onClick={handleButtonClick}
-                        disabled={setAnswers.length === 0}
-                        className={styles.quizButton}
-                    >
-                        {setAnswers.length === 0
-                            ? 'Select an answer'
-                            : 'Submit'}
-                    </button>
-                ) : (
-                    <Status correct={currentQuestionCorrect} />
-                )}
-            </div>
+            )}
         </div>
     )
 }

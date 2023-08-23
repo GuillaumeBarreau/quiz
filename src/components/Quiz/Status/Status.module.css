@@ -1,0 +1,10 @@
+.status_container {
+    @apply w-full;
+    @apply p-4;
+    @apply rounded-md;
+    @apply mt-4;
+}
+
+.status_content {
+    @apply flex items-center;
+}

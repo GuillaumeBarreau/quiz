@@ -1,7 +1,9 @@
+import Progress from '@/components/CircularDashedProgress/CircularDashedProgress.component'
 import { IHeader } from './Header.d'
+import styles from './Header.module.css'
 
 const Header: React.FC<IHeader> = (props) => {
-    const { course, maxQuestions, currentQuestion } = props
+    const { course, maxQuestions, currentQuestion, isLastQuestion } = props
 
     return (
         <div className="h-16 mb-4 p-4 w-full px-3 border-b-2 border-slate-700 text-white flex justify-between items-center">
@@ -10,17 +12,22 @@ const Header: React.FC<IHeader> = (props) => {
                     Practice Test Exam
                 </p>
             </div>
+            {!isLastQuestion && (
+                <div className={styles.header_center}>
+                    <p className={styles.header_label}>
+                        Question: {currentQuestion + 1} / {maxQuestions}
+                    </p>
+                    <Progress
+                        progress={currentQuestion}
+                        maxValue={maxQuestions}
+                        style={undefined}
+                        className={undefined}
+                    />
+                </div>
+            )}
             <div>
                 <p className="mr-4">{course}</p>
             </div>
-            {/* <progress
-                className="w-2/3 h-4 bg-gray-600 rounded-md mt-4"
-                max={maxQuestions}
-                value={currentQuestion}
-            />
-            <p className="ml-4">
-                {currentQuestion} / {maxQuestions}
-            </p> */}
         </div>
     )
 }

@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "generateData": "cd ./scripts && node createdJsonData.js"
+        "generateData": "cd ./scripts && node createdJsonData.mjs"
     },
     "dependencies": {
         "@types/node": "20.4.6",

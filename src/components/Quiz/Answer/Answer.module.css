@@ -1,0 +1,12 @@
+.answer_wrapper {
+    @apply flex flex-col items-center;
+    @apply w-full;
+}
+
+.answer_wrapper > :first-child {
+    @apply rounded-t-lg;
+}
+
+.answer_wrapper > :last-child {
+    @apply rounded-b-lg;
+}

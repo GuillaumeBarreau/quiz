@@ -8,6 +8,6 @@ export interface IInputCheckboxAnswer {
     answer: TAnswer
     selectAnswers: TSelectAnswers
     handleClickSelectAnswers: THandleClickSelectAnswers
-    style: any
+    resultInputSelected: any
     disabled: boolean
 }

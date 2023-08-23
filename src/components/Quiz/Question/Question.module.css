@@ -1,0 +1,8 @@
+.question_wrapper {
+    @apply text-blue-950;
+    @apply flex justify-center;
+    @apply p-5 rounded-lg;
+    width: 600px;
+    text-align: center;
+    font-weight: 600;
+}
