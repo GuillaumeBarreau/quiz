@@ -1,3 +1,3 @@
-import Answer from './Answer'
+import Answer from './Answer.component'
 
 export default Answer

@@ -1,20 +1,59 @@
 .inputCheckboxAnswer_container {
-    @apply bg-gray-500 bg-opacity-30;
-    @apply text-sm;
-    @apply mt-2 p-2;
-    @apply min-w-[500px];
-    @apply rounded-md border-4;
+    /* @apply bg-gray-300 opacity-70; */
+    background-color: white;
+    @apply text-base text-blue-950;
+    @apply mt-2;
+    @apply border-4 border-transparent;
+    @apply w-full;
+    user-select: none;
+    transition: 0.2s ease-in-out;
+    font-weight: 500;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.inputCheckboxAnswer_container__selected {
+    @apply border-blue-300 bg-blue-300;
+    transform: translateX(0.25rem);
+}
+
+.inputCheckboxAnswer_container__success {
+    @apply border-blue-300 bg-blue-300;
+}
+
+.inputCheckboxAnswer_container__errorSelected {
+    @apply border-red-300 bg-red-300;
+}
+
+.inputCheckboxAnswer_container__errorNotSelected {
+    @apply border-yellow-300 bg-yellow-300;
 }
 
 .inputCheckboxAnswer_label {
     @apply flex items-center;
 }
 
+.inputCheckboxAnswer_label:hover {
+    @apply cursor-pointer
+}
+
 .inputCheckboxAnswer_input {
+    display: none;
     @apply h-6 w-6;
-    @apply text-indigo-600;
+    @apply bg-blue-400;
 }
 
 .inputCheckboxAnswer_text {
-    @apply ml-4;
+    @apply ml-1 m-1 p-1;
+}
+
+@screen md {
+    .inputCheckboxAnswer_text {
+        @apply ml-1 m-1 p-1;
+    }
+}
+
+@screen lg {
+    .inputCheckboxAnswer_container {
+        @apply w-[600px];
+    }
 }
