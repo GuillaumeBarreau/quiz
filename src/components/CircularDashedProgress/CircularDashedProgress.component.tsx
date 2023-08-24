@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import styles from './progress.module.css'
 
-function _Progress({
+function Progress({
     progress = 0,
     strokeWidth = 8,
     ballStrokeWidth = 1,
@@ -105,7 +105,7 @@ function _Progress({
     )
 }
 
-export const Progress = React.memo(_Progress)
 Progress.displayName = 'Progress'
 
-export default Progress
+export const MemoProgress = React.memo(Progress)
+export default MemoProgress
