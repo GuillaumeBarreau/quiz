@@ -2,16 +2,25 @@
 import { useState } from 'react'
 import styles from './Quiz.module.css'
 import Answer from '@/components/Quiz/Answer'
-import Status from '@/components/Quiz/Status'
+import Status from '@/components/Status'
 import Header from '@/components/Quiz/Header'
 import Question from '@/components/Quiz/Question'
+import Results from '@/components/Quiz/Results/Results.component'
+import {
+    EAnswerStatus,
+    TAnswer,
+    TAnswers,
+    TCorrectAnswers,
+} from '@/components/global'
+import { IQuiz } from '@/components/Quiz/Quiz.d'
 
-const Quiz = ({ questionsArray, questionsNumber }: any) => {
-    const [questionNumber, setQuestionNumber] = useState(0)
-    const [numCorrect, setNumCorrect] = useState(0)
-    const [statusShown, setStatusShown] = useState(false)
-    const [currentQuestionCorrect, setCurrentQuestionCorrect] = useState(false)
-    const [answers, setAnswers] = useState([])
+const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
+    const [questionNumber, setQuestionNumber] = useState<number>(0)
+    const [numCorrect, setNumCorrect] = useState<number>(0)
+    const [statusShown, setStatusShown] = useState<boolean>(false)
+    const [currentQuestionCorrect, setCurrentQuestionCorrect] =
+        useState<boolean>(false)
+    const [answers, setAnswers] = useState<TAnswers>([])
     const [questionsIndexError, setQuestionsIndexError] = useState<number[]>([])
 
     const question = questionsArray?.[questionNumber]?.question
@@ -24,7 +33,10 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
     const switchQuestionWithCorrectAnswer = 1000
     const switchQuestionWithWrongAnswer = 2000
 
-    const compareArrays = (correctAnswers, answers) => {
+    const compareArrays = (
+        correctAnswers: TCorrectAnswers,
+        answers: TAnswers
+    ) => {
         if (correctAnswers.length !== answers.length) {
             return false
         }
@@ -34,8 +46,8 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
         return answers.every((answer) => uniqueValues.has(answer))
     }
 
-    const handleClickSelectAnswers = (answer) => {
-        const index = answers.indexOf(answer)
+    const handleClickSelectAnswers = (answer: TAnswer) => {
+        const index = answers?.indexOf?.(answer)
         if (index !== -1) {
             const newArray = [...answers]
             newArray.splice(index, 1)
@@ -45,14 +57,14 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
         }
     }
 
-    const setStatus = (status) => {
+    const setStatus = (status: EAnswerStatus) => {
         const timer =
-            status === 'correct'
+            status === EAnswerStatus.Correct
                 ? switchQuestionWithCorrectAnswer
                 : switchQuestionWithWrongAnswer *
                   questionsArray[questionNumber].correctAnswer.length
 
-        if (status === 'correct') {
+        if (status === EAnswerStatus.Correct) {
             setNumCorrect((numCorrect) => numCorrect + 1)
             setCurrentQuestionCorrect(true)
         } else {
@@ -82,10 +94,9 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
         const correctAnswer = questionsArray?.[questionNumber]?.correctAnswer
 
         compareArrays(correctAnswer, answers)
-            ? setStatus('correct')
-            : setStatus('wrong')
+            ? setStatus(EAnswerStatus.Correct)
+            : setStatus(EAnswerStatus.Wrong)
     }
-    console.log('questionsError', questionsIndexError)
 
     return (
         <div className={styles.quiz_container}>
@@ -118,6 +129,13 @@ const Quiz = ({ questionsArray, questionsNumber }: any) => {
                         <Status correct={currentQuestionCorrect} />
                     )}
                 </div>
+            )}
+            {isLastQuestion && (
+                <Results
+                    numCorrect={numCorrect}
+                    questionsArray={questionsArray}
+                    questionsIndexError={questionsIndexError}
+                />
             )}
         </div>
     )
