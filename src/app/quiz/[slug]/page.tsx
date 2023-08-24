@@ -2,7 +2,7 @@ import Quiz from '@/components/Quiz/Quiz'
 
 async function getData(quizName: string) {
     const questionsFetch = await fetch(
-        `http://127.0.0.1:3001/api/quiz/${quizName}`
+        `http://127.0.0.1:3000/api/quiz/${quizName}`
     )
 
     const questions = await questionsFetch.json()
