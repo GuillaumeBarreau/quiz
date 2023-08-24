@@ -2,9 +2,9 @@ import fsPromises from 'fs/promises'
 import path from 'path'
 import { NextResponse } from 'next/server'
 import { generateQuiz } from '@/utils/quiz.utils'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 
-export const getFileData = async  (req: NextApiRequest, res: NextApiResponse, dataFilePath: string, questionsCount: number) => {
+export const getFileData = async  (req: Request, res: NextApiResponse, dataFilePath: string, questionsCount: number) => {
 
     if (!dataFilePath) {
         return null

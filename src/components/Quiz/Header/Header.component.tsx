@@ -20,8 +20,6 @@ const Header: React.FC<IHeader> = (props) => {
                     <Progress
                         progress={currentQuestion}
                         maxValue={maxQuestions}
-                        style={undefined}
-                        className={undefined}
                     />
                 </div>
             )}
