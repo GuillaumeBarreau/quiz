@@ -1,5 +1,5 @@
 const routeFileTemplate = (shortTitle) => `
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiResponse } from 'next'
 import { getFileData } from '../../api.utils'
 const dataFilePath = "data/${shortTitle}/index.json"
 
