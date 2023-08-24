@@ -1,14 +1,12 @@
-export type TAnswer =  string
+export type TAnswers =  string[]
 
-export type TAnswers =  TAnswer[]
+export type TSelectAnswers =  string[]
 
-export type TSelectAnswers =  TAnswer[]
+export type TOptionAnswers =  string[]
 
-export type TOptionAnswers =  TAnswer[]
+export type TCorrectAnswers = string[]
 
-export type TCorrectAnswers = TAnswer[]
-
-export type THandleClickSelectAnswers = (answer: TAnswer) => void
+export type THandleClickSelectAnswers = (answer: string) => void
 
 export type THandleClickNextQuestion = () => void
 

@@ -1,11 +1,7 @@
-import {
-    TAnswer,
-    THandleClickSelectAnswers,
-    TSelectAnswers,
-} from '@/components/global'
+import { THandleClickSelectAnswers, TSelectAnswers } from '@/components/global'
 
 export interface IInputCheckboxAnswer {
-    answer: TAnswer
+    answer: string
     selectAnswers: TSelectAnswers
     handleClickSelectAnswers: THandleClickSelectAnswers
     resultInputSelected: any

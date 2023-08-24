@@ -6,12 +6,7 @@ import Status from '@/components/Status'
 import Header from '@/components/Quiz/Header'
 import Question from '@/components/Quiz/Question'
 import Results from '@/components/Quiz/Results/Results.component'
-import {
-    EAnswerStatus,
-    TAnswer,
-    TAnswers,
-    TCorrectAnswers,
-} from '@/components/global'
+import { EAnswerStatus, TAnswers, TCorrectAnswers } from '@/components/global'
 import { IQuiz } from '@/components/Quiz/Quiz.d'
 
 const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
@@ -46,7 +41,7 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
         return answers.every((answer) => uniqueValues.has(answer))
     }
 
-    const handleClickSelectAnswers = (answer: TAnswer) => {
+    const handleClickSelectAnswers = (answer: string) => {
         const index = answers?.indexOf?.(answer)
         if (index !== -1) {
             const newArray = [...answers]
