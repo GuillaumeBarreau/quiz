@@ -17,8 +17,6 @@ function Progress({
         { stop: 1, color: '#5eaefd' },
     ],
     subtitle = '',
-    style,
-    className,
     suffix = '%',
 }) {
     progress = Math.round(progress * 100) / maxValue
@@ -32,7 +30,7 @@ function Progress({
     const offset = (circumference * (100 - progress * (1 - reduction))) / 100
 
     return (
-        <div className={`${className} ${styles.progress}`} style={style}>
+        <div className={`${styles.progress}`}>
             <svg viewBox={`0 0 ${width} ${height}`} className={styles.svg}>
                 <defs>
                     <linearGradient

@@ -17,7 +17,7 @@ export enum EAnswerStatus {
 
 export interface IQuestion {
     position: number,
-    question: TAnswer,
+    question: string,
     answers: TAnswers,
     correctAnswer: TCorrectAnswers
 }
