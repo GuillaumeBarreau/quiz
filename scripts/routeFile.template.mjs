@@ -1,6 +1,6 @@
 const routeFileTemplate = (shortTitle) => `
 import { NextApiResponse } from 'next'
-import { getFileData } from '../../api.utils'
+import { getFileData } from '@/app/api/api.utils'
 const dataFilePath = "data/${shortTitle}/index.json"
 
 export async function GET(req: Request, res: NextApiResponse) {
