@@ -9,32 +9,26 @@ async function getData(quizName: string) {
         (node_prod_env
             ? `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
             : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
-    console.log('DOMAIN', DOMAIN)
-    const questionsFetch = await fetch(
-        `https://quiz-o1kkeh5g5-guillaumebarreau.vercel.app/api/quiz/professional-scrum-developer-1`
-    )
+
+    const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
 
     const questions = await questionsFetch.json()
 
     return {
-        questions,
+        questions: DOMAIN,
     }
 }
 
 const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     const quizName = params?.slug
     const { questions } = await getData(quizName)
+    console.log(questions)
 
     if (!questions) {
         return <p>Not data found</p>
     }
 
-    return (
-        <Quiz
-            questionsArray={questions?.data}
-            questionsNumber={questions?.data?.length}
-        />
-    )
+    return null
 }
 
 export default Page
