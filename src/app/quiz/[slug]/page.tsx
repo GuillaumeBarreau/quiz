@@ -11,7 +11,18 @@ async function getData(quizName: string) {
             : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
     try {
-        const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
+          const settings = {
+              method: 'GET',
+              headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+              },
+          }
+
+          const questionsFetch = await fetch(
+              `${DOMAIN}/api/quiz/${quizName}`,
+              settings
+          )
         const questions = await questionsFetch.json()
 
         return {
