@@ -10,7 +10,9 @@ async function getData(quizName: string) {
             ? `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
             : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
     console.log('DOMAIN', DOMAIN)
-    const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
+    const questionsFetch = await fetch(
+        `https://quiz-o1kkeh5g5-guillaumebarreau.vercel.app/api/quiz/professional-scrum-developer-1`
+    )
 
     const questions = await questionsFetch.json()
 
