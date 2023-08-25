@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import styles from './progress.module.css'
 
-function Progress({
+const Progress = ({
     progress = 0,
     strokeWidth = 8,
     ballStrokeWidth = 1,
@@ -18,11 +18,11 @@ function Progress({
     ],
     subtitle = '',
     suffix = '%',
-}) {
+}) => {
     progress = Math.round(progress * 100) / maxValue
     const width = 100
     const center = width / 2
-    const height = 100 || center + center * Math.cos(reduction * Math.PI)
+    const height = 100
     const [unique] = useState(() => Math.random().toString())
     const rotate = 90 + 180 * reduction
     const r = center - strokeWidth / 2 - ballStrokeWidth / 2
@@ -105,5 +105,4 @@ function Progress({
 
 Progress.displayName = 'Progress'
 
-export const MemoProgress = React.memo(Progress)
-export default MemoProgress
+export default React.memo(Progress)

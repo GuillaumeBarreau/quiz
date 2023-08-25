@@ -16,7 +16,7 @@ async function getData(quizName: string) {
         }
 
         const questionsFetch = await fetch(
-            `http://${DOMAIN}/api/quiz/${quizName}`,
+            `http://${DOMAIN}/api/practice-mode/quiz/${quizName}`,
             settings
         )
         const questions = await questionsFetch.json()

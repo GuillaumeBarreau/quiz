@@ -37,7 +37,7 @@ const generateConfigData = (file) => {
 }
 
 const generateAPIRoutes = (file) => {
-    const apiFolder = `../src/app/api/quiz`
+    const apiFolder = `../src/app/api/practice-mode/quiz`
     const apiRouteFolder = `${apiFolder}/${file.url}`
 
     if (!fs.existsSync(apiFolder)) {
