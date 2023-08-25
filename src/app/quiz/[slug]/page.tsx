@@ -11,35 +11,37 @@ async function getData(quizName: string) {
             : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
     try {
-          const settings = {
-              method: 'GET',
-              headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json',
-              },
-          }
+        const settings = {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+        }
 
-          const questionsFetch = await fetch(
-              `${DOMAIN}/api/quiz/${quizName}`,
-              settings
-          )
+        const questionsFetch = await fetch(
+            `${DOMAIN}/api/quiz/${quizName}`,
+            settings
+        )
         const questions = await questionsFetch.json()
 
         return {
             questions,
             domain: `${DOMAIN}/api/quiz/${quizName}`,
+            domainB: vercel_public_domain,
         }
     } catch (error) {
         return {
             questions: [],
             domain: `${DOMAIN}/api/quiz/${quizName}`,
+            domainB: vercel_public_domain,
         }
     }
 }
 
 const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     const quizName = params?.slug
-    const { questions, domain } = await getData(quizName)
+    const { questions, domain, domainB } = await getData(quizName)
 
     if (!questions) {
         return <p>Not data found</p>
@@ -48,6 +50,7 @@ const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     return (
         <>
             <p>{domain}</p>
+            <p>{domainB}</p>
             <Quiz
                 questionsArray={questions?.data}
                 questionsNumber={questions?.data?.length}
