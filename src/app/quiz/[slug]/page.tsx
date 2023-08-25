@@ -1,4 +1,4 @@
-import Quiz from '@/components/Quiz/Quiz'
+// import Quiz from '@/components/Quiz/Quiz'
 
 async function getData(quizName: string) {
     const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -31,10 +31,10 @@ const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     return (
         <>
             <p>{domain}</p>
-            <Quiz
+            {/* <Quiz
                 questionsArray={questions?.data}
                 questionsNumber={questions?.data?.length}
-            />
+            /> */}
         </>
     )
 }
