@@ -7,31 +7,32 @@ async function getData(quizName: string) {
     const DOMAIN =
         vercel_public_domain ??
         (node_prod_env
-            ? `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-            : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
+            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+            : `https://${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
-    // const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
+    const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
 
-    // const questions = await questionsFetch.json()
+    const questions = await questionsFetch.json()
 
     return {
-        questions: DOMAIN,
+        questions,
     }
 }
 
 const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
-    console.log('Page')
     const quizName = params?.slug
-    console.log('quizName')
-
     const { questions } = await getData(quizName)
-    console.log('questions', questions)
 
     if (!questions) {
         return <p>Not data found</p>
     }
 
-    return <p>{questions}</p>
+    return (
+        <Quiz
+            questionsArray={questions?.data}
+            questionsNumber={questions?.data?.length}
+        />
+    )
 }
 
 export default Page
