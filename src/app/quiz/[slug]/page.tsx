@@ -11,7 +11,7 @@ async function getData(quizName: string) {
             : `https://${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
     const questionsFetch = await fetch(
-        `quiz-git-fix-buildenv-guillaumebarreau.vercel.app/api/quiz/professional-scrum-developer-1/api/quiz/${quizName}`
+        `https://quiz-git-fix-buildenv-guillaumebarreau.vercel.app/api/quiz/professional-scrum-developer-1/api/quiz/${quizName}`
     )
 
     const questions = await questionsFetch.json()
