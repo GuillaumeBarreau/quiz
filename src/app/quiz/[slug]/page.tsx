@@ -1,4 +1,4 @@
-import Quiz from '@/components/Quiz/Quiz'
+// import Quiz from '@/components/Quiz/Quiz'
 
 async function getData(quizName: string) {
     const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -29,9 +29,9 @@ const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     const quizName = params?.slug
     const { questions, domainA, domainB, domainC } = await getData(quizName)
 
-    if (!questions) {
-        return <p>Not data found</p>
-    }
+    // if (!questions) {
+    //     return <p>Not data found</p>
+    // }
 
     return (
         <>
