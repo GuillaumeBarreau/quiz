@@ -8,7 +8,10 @@ const CardFormation = ({
     url,
 }: ICardFormation) => {
     return (
-        <a href={`/quiz/${url}`} className={styles.cardFormation_wrapper}>
+        <a
+            href={`/practice-mode/quiz/${url}`}
+            className={styles.cardFormation_wrapper}
+        >
             <svg
                 className="w-10 h-10 mb-2 text-gray-500 dark:text-gray-400"
                 aria-hidden="true"
