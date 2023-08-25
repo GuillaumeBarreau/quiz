@@ -21,7 +21,7 @@ async function getData(quizName: string) {
         domainA: DOMAIN,
         domainB: process.env.NEXT_PUBLIC_VERCEL_URL,
         domainC:
-            'http://quiz-hgckelvsq-guillaumebarreau.vercel.app/api/quiz/professional-scrum-developer-1',
+            'https://quiz-hgckelvsq-guillaumebarreau.vercel.app/api/quiz/professional-scrum-developer-1',
     }
 }
 
