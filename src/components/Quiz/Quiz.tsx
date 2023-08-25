@@ -18,12 +18,16 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
     const [answers, setAnswers] = useState<TAnswers>([])
     const [questionsIndexError, setQuestionsIndexError] = useState<number[]>([])
 
+    if (!questionsArray?.length) {
+        return null
+    }
+
     const question = questionsArray?.[questionNumber]?.question
     const optionAnswers = questionsArray?.[questionNumber]?.answers
     const correctAnswer = questionsArray?.[questionNumber]?.correctAnswer
     const indexAnswer = questionsArray?.[questionNumber]?.position
 
-    const isLastQuestion = questionNumber === questionsArray.length
+    const isLastQuestion = questionNumber === questionsArray?.length
 
     const switchQuestionWithCorrectAnswer = 1000
     const switchQuestionWithWrongAnswer = 2000

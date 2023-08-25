@@ -1,14 +1,33 @@
 import Quiz from '@/components/Quiz/Quiz'
 
 async function getData(quizName: string) {
-    const questionsFetch = await fetch(
-        `http://${process.env.DB_HOST}:${process.env.DB_PORT}/api/quiz/${quizName}`
-    )
+    const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
 
-    const questions = await questionsFetch.json()
+    const DOMAIN =
+        vercel_public_domain ?? `${process.env.DB_HOST}:${process.env.DB_PORT}`
 
-    return {
-        questions,
+    try {
+        const settings = {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+        }
+
+        const questionsFetch = await fetch(
+            `http://${DOMAIN}/api/quiz/${quizName}`,
+            settings
+        )
+        const questions = await questionsFetch.json()
+
+        return {
+            questions,
+        }
+    } catch (error) {
+        return {
+            questions: [],
+        }
     }
 }
 
