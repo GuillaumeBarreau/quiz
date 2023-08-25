@@ -1,4 +1,4 @@
-// import Quiz from '@/components/Quiz/Quiz'
+import Quiz from '@/components/Quiz/Quiz'
 
 async function getData(quizName: string) {
     const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -10,13 +10,20 @@ async function getData(quizName: string) {
             ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
             : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
-    const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
+    try {
+        const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
 
-    const questions = await questionsFetch.json()
+        const questions = await questionsFetch.json()
 
-    return {
-        questions,
-        domain: `${DOMAIN}/api/quiz/${quizName}`,
+        return {
+            questions,
+            domain: `${DOMAIN}/api/quiz/${quizName}`,
+        }
+    } catch (error) {
+        return {
+            questions: [],
+            domain: `${DOMAIN}/api/quiz/${quizName}`,
+        }
     }
 }
 
@@ -31,10 +38,10 @@ const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     return (
         <>
             <p>{domain}</p>
-            {/* <Quiz
+            <Quiz
                 questionsArray={questions?.data}
                 questionsNumber={questions?.data?.length}
-            /> */}
+            />
         </>
     )
 }
