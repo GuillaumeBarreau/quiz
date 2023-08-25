@@ -11,7 +11,7 @@ async function getData(quizName: string) {
             : `https://${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
     const questionsFetch = await fetch(
-        `https://quiz-git-fix-buildenv-guillaumebarreau.vercel.app/api/quiz/professional-scrum-developer-1/api/quiz/${quizName}`
+        `https://quiz-git-fix-buildenv-guillaumebarreau.vercel.app/api/quiz/${quizName}`
     )
 
     const questions = await questionsFetch.json()
@@ -32,13 +32,14 @@ const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     // if (!questions) {
     //     return <p>Not data found</p>
     // }
+    console.log(questions)
 
     return (
         <>
             <p>Domain A: {domainA}</p>
             <p>Domain B: {domainB}</p>
             <p>Domain C: {domainC}</p>
-            <p>Quiz name: {questions}</p>
+            {/* <p>Quiz name: {questions}</p> */}
         </>
     )
 }
