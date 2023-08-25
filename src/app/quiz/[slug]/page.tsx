@@ -12,7 +12,6 @@ async function getData(quizName: string) {
 
     try {
         const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
-
         const questions = await questionsFetch.json()
 
         return {
