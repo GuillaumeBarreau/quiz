@@ -20,15 +20,18 @@ async function getData(quizName: string) {
 }
 
 const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
+    console.log('Page')
     const quizName = params?.slug
+    console.log('quizName')
+
     const { questions } = await getData(quizName)
-    console.log(questions)
+    console.log('questions', questions)
 
     if (!questions) {
         return <p>Not data found</p>
     }
 
-    return null
+    return <p>{questions}</p>
 }
 
 export default Page
