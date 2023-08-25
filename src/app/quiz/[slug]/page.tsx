@@ -7,8 +7,8 @@ async function getData(quizName: string) {
     const DOMAIN =
         vercel_public_domain ??
         (node_prod_env
-            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-            : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
+            ? `${process.env.NEXT_PUBLIC_VERCEL_URL}`
+            : `${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
     try {
         const settings = {
@@ -20,7 +20,7 @@ async function getData(quizName: string) {
         }
 
         const questionsFetch = await fetch(
-            `${DOMAIN}/api/quiz/${quizName}`,
+            `http://${DOMAIN}/api/quiz/${quizName}`,
             settings
         )
         const questions = await questionsFetch.json()
