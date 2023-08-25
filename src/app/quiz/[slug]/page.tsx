@@ -27,17 +27,19 @@ async function getData(quizName: string) {
 
 const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
     const quizName = params?.slug
-    const { questions } = await getData(quizName)
+    const { questions, domainA, domainB, domainC } = await getData(quizName)
 
     if (!questions) {
         return <p>Not data found</p>
     }
 
     return (
-        <Quiz
-            questionsArray={questions?.data}
-            questionsNumber={questions?.data?.length}
-        />
+        <>
+            <p>Domain A: {domainA}</p>
+            <p>Domain B: {domainB}</p>
+            <p>Domain C: {domainC}</p>
+            <p>Quiz name: {questions}</p>
+        </>
     )
 }
 
