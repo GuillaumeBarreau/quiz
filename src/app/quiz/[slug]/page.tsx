@@ -10,9 +10,9 @@ async function getData(quizName: string) {
             ? `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
             : `http://${process.env.DB_HOST}:${process.env.DB_PORT}`)
 
-    const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
+    // const questionsFetch = await fetch(`${DOMAIN}/api/quiz/${quizName}`)
 
-    const questions = await questionsFetch.json()
+    // const questions = await questionsFetch.json()
 
     return {
         questions: DOMAIN,
