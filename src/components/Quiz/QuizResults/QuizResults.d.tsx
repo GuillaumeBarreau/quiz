@@ -1,7 +1,6 @@
 import { IQuestion } from '@/components/global'
 
-export interface IResults {
-    numCorrect: number
+export interface IQuizResults {
     questionsArray: IQuestion[]
     questionsIndexError: number[]
 }

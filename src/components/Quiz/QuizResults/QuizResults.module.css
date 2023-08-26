@@ -8,7 +8,6 @@
 
 .results_text {
     @apply text-blue-950 font-bold;
-    @apply mb-8;
 }
 
 .results_wrapper {

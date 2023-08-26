@@ -1,20 +1,36 @@
-import { IResults } from './Results.d'
-import styles from './Results.module.css'
+import { useRouter } from 'next/navigation'
+import { Button, ButtonGroup } from '@/components/Inputs/'
+import { IQuizResults } from './QuizResults.d'
+import styles from './QuizResults.module.css'
 
-const Results: React.FC<IResults> = (props) => {
-    const { numCorrect, questionsArray, questionsIndexError } = props
+const QuizResults: React.FC<IQuizResults> = (props) => {
+    const router = useRouter()
+    const { questionsArray, questionsIndexError } = props
+    const correctAnswers = questionsArray.length - questionsIndexError.length
 
     if (!questionsArray.length) {
         return null
     }
 
+    const handleButtonClickHome = () => {
+        router.push('/practice-mode')
+    }
+
+    const handleButtonClickRetry = () => {
+        window.location.reload()
+    }
+
     return (
         <div className={styles.results_container}>
-            {isFinite(numCorrect) && (
+            {isFinite(correctAnswers) && (
                 <p className={styles.results_text}>
-                    You scored {numCorrect} out of {questionsArray.length}
+                    You scored {correctAnswers} out of {questionsArray.length}
                 </p>
             )}
+            <ButtonGroup orientation>
+                <Button onClick={handleButtonClickRetry}>Retry</Button>
+                <Button onClick={handleButtonClickHome}>Home</Button>
+            </ButtonGroup>
             {questionsArray.map((question, index) => {
                 const isCorrectAnswer = questionsIndexError.includes(index)
 
@@ -48,4 +64,4 @@ const Results: React.FC<IResults> = (props) => {
     )
 }
 
-export default Results
+export default QuizResults
