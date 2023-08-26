@@ -3,7 +3,7 @@ import { IHeader } from './Header.d'
 import styles from './Header.module.css'
 
 const Header: React.FC<IHeader> = (props) => {
-    const { course, maxQuestions, currentQuestion, isLastQuestion } = props
+    const { course, maxQuestions, currentQuestion } = props
 
     return (
         <div className="h-16 mb-4 p-4 w-full px-3 border-b-2 border-slate-700 text-white flex justify-between items-center">
@@ -12,7 +12,7 @@ const Header: React.FC<IHeader> = (props) => {
                     Practice Test Exam
                 </p>
             </div>
-            {!isLastQuestion && (
+            {currentQuestion !== maxQuestions && (
                 <div className={styles.header_center}>
                     <p className={styles.header_label}>
                         Question: {currentQuestion + 1} / {maxQuestions}

@@ -1,10 +1,13 @@
+'use client'
+import { useState, useEffect } from 'react'
 import Quiz from '@/components/Quiz/Quiz'
 
 async function getData(quizName: string) {
     const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
 
     const DOMAIN =
-        vercel_public_domain ?? `${process.env.DB_HOST}:${process.env.DB_PORT}`
+        vercel_public_domain ??
+        `${process.env.NEXT_PUBLIC_DB_HOST}:${process.env.NEXT_PUBLIC_DB_PORT}`
 
     try {
         const settings = {
@@ -20,29 +23,40 @@ async function getData(quizName: string) {
             settings
         )
         const questions = await questionsFetch.json()
+        console.log('questions', questions)
 
         return {
             questions,
         }
     } catch (error) {
         return {
-            questions: [],
+            questions: {
+                data: [],
+            },
         }
     }
 }
 
-const Page: React.FC<{ params: { slug: string } }> = async ({ params }) => {
+const Page: React.FC<{ params: { slug: string } }> = ({ params }) => {
     const quizName = params?.slug
-    const { questions } = await getData(quizName)
+    const [data, setData] = useState({
+        questions: {
+            data: [],
+        },
+    })
 
-    if (!questions) {
-        return <p>Not data found</p>
-    }
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getData(quizName)
+            setData(data)
+        }
+        fetchData()
+    }, [quizName])
 
     return (
         <Quiz
-            questionsArray={questions?.data}
-            questionsNumber={questions?.data?.length}
+            questionsArray={data.questions?.data}
+            questionsNumber={data.questions?.data?.length}
         />
     )
 }

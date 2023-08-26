@@ -1,34 +1,23 @@
 'use client'
 import { useState } from 'react'
 import styles from './Quiz.module.css'
-import Answer from '@/components/Quiz/Answer'
-import Status from '@/components/Status'
 import Header from '@/components/Quiz/Header'
-import Question from '@/components/Quiz/Question'
-import Results from '@/components/Quiz/Results/Results.component'
 import { EAnswerStatus, TAnswers, TCorrectAnswers } from '@/components/global'
 import { IQuiz } from '@/components/Quiz/Quiz.d'
+import QuizResults from '@/components/Quiz/QuizResults/QuizResults.component'
+import QuizAnswers from '@/components/Quiz/QuizAnswers/QuizAnswers.component'
 
 const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
-    const [questionNumber, setQuestionNumber] = useState<number>(0)
-    const [numCorrect, setNumCorrect] = useState<number>(0)
-    const [statusShown, setStatusShown] = useState<boolean>(false)
-    const [currentQuestionCorrect, setCurrentQuestionCorrect] =
+    const [stateQuestionNumber, setStateQuestionNumber] = useState<number>(0)
+    const [stateStatusShown, setStateStatusShown] = useState<boolean>(false)
+    const [stateCurrentQuestionCorrect, setStateCurrentQuestionCorrect] =
         useState<boolean>(false)
-    const [answers, setAnswers] = useState<TAnswers>([])
-    const [questionsIndexError, setQuestionsIndexError] = useState<number[]>([])
+    const [stateAnswers, setStateAnswers] = useState<TAnswers>([])
+    const [stateQuestionsIndexError, setStateQuestionsIndexError] = useState<
+        number[]
+    >([])
 
-    if (!questionsArray?.length) {
-        return null
-    }
-
-    const question = questionsArray?.[questionNumber]?.question
-    const optionAnswers = questionsArray?.[questionNumber]?.answers
-    const correctAnswer = questionsArray?.[questionNumber]?.correctAnswer
-    const indexAnswer = questionsArray?.[questionNumber]?.position
-
-    const isLastQuestion = questionNumber === questionsArray?.length
-
+    const isLastQuestion = stateQuestionNumber === questionsArray?.length
     const switchQuestionWithCorrectAnswer = 1000
     const switchQuestionWithWrongAnswer = 2000
 
@@ -45,32 +34,20 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
         return answers.every((answer) => uniqueValues.has(answer))
     }
 
-    const handleClickSelectAnswers = (answer: string) => {
-        const index = answers?.indexOf?.(answer)
-        if (index !== -1) {
-            const newArray = [...answers]
-            newArray.splice(index, 1)
-            setAnswers(newArray)
-        } else {
-            setAnswers((answers) => [...answers, answer])
-        }
-    }
-
     const setStatus = (status: EAnswerStatus) => {
         const timer =
             status === EAnswerStatus.Correct
                 ? switchQuestionWithCorrectAnswer
                 : switchQuestionWithWrongAnswer *
-                  questionsArray[questionNumber].correctAnswer.length
+                  questionsArray[stateQuestionNumber].correctAnswer.length
 
         if (status === EAnswerStatus.Correct) {
-            setNumCorrect((numCorrect) => numCorrect + 1)
-            setCurrentQuestionCorrect(true)
+            setStateCurrentQuestionCorrect(true)
         } else {
-            setCurrentQuestionCorrect(false)
-            setQuestionsIndexError((questionsIndexError) => [
+            setStateCurrentQuestionCorrect(false)
+            setStateQuestionsIndexError((questionsIndexError) => [
                 ...questionsIndexError,
-                questionNumber,
+                stateQuestionNumber,
             ])
         }
 
@@ -80,19 +57,32 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
     }
 
     const switchQuestion = () => {
-        setStatusShown(false)
-        setAnswers([])
-        setQuestionNumber((prevNumber) =>
+        setStateStatusShown(false)
+        setStateAnswers([])
+        setStateQuestionNumber((prevNumber) =>
             prevNumber < questionsNumber ? prevNumber + 1 : prevNumber
         )
     }
 
-    const handleButtonClick = () => {
-        setStatusShown(true)
+    const handleClickInputSelectAnswers = (answer: string) => {
+        const index = stateAnswers?.indexOf?.(answer)
 
-        const correctAnswer = questionsArray?.[questionNumber]?.correctAnswer
+        if (index !== -1) {
+            const newArray = [...stateAnswers]
+            newArray.splice(index, 1)
+            setStateAnswers(newArray)
+        } else {
+            setStateAnswers((answers) => [...answers, answer])
+        }
+    }
 
-        compareArrays(correctAnswer, answers)
+    const handleClickButtonSubmit = () => {
+        setStateStatusShown(true)
+
+        const correctAnswer =
+            questionsArray?.[stateQuestionNumber]?.correctAnswer
+
+        compareArrays(correctAnswer, stateAnswers)
             ? setStatus(EAnswerStatus.Correct)
             : setStatus(EAnswerStatus.Wrong)
     }
@@ -100,40 +90,30 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
     return (
         <div className={styles.quiz_container}>
             <Header
-                currentQuestion={questionNumber}
+                currentQuestion={stateQuestionNumber}
                 maxQuestions={questionsArray.length}
                 course={'Professional Scrum Developer I'}
-                isLastQuestion={isLastQuestion}
             />
-            {question && (
-                <div className={styles.quiz_question_wrapper}>
-                    <Question question={question} />
-                    <Answer
-                        handleClickSelectAnswers={handleClickSelectAnswers}
-                        optionAnswers={optionAnswers}
-                        selectAnswers={answers}
-                        correctAnswer={correctAnswer}
-                        statusShown={statusShown}
-                        indexAnswer={indexAnswer}
-                    />
-                    {!statusShown ? (
-                        <button
-                            onClick={handleButtonClick}
-                            disabled={answers.length === 0}
-                            className={styles.quizButton}
-                        >
-                            {answers.length ? 'Submit' : 'Select an answer'}
-                        </button>
-                    ) : (
-                        <Status correct={currentQuestionCorrect} />
-                    )}
-                </div>
+            {questionsArray?.length ? (
+                <QuizAnswers
+                    handleClickInputSelectAnswers={
+                        handleClickInputSelectAnswers
+                    }
+                    stateQuestionNumber={stateQuestionNumber}
+                    handleClickButtonSubmit={handleClickButtonSubmit}
+                    questionsArray={questionsArray}
+                    stateCurrentQuestionCorrect={stateCurrentQuestionCorrect}
+                    selectAnswers={stateAnswers}
+                    stateStatusShown={stateStatusShown}
+                    answers={stateAnswers}
+                />
+            ) : (
+                <p>Loading...</p>
             )}
             {isLastQuestion && (
-                <Results
-                    numCorrect={numCorrect}
+                <QuizResults
                     questionsArray={questionsArray}
-                    questionsIndexError={questionsIndexError}
+                    questionsIndexError={stateQuestionsIndexError}
                 />
             )}
         </div>

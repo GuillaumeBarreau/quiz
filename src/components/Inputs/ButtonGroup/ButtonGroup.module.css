@@ -1,0 +1,10 @@
+.buttonGroup_container {
+    @apply flex flex-wrap;
+    @apply flex-1;
+    @apply p-4 m-2;
+    @apply items-center justify-center;
+}
+
+.buttonGroup_container > * {
+    @apply m-2;
+}
