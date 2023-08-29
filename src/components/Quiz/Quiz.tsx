@@ -6,6 +6,7 @@ import { EAnswerStatus, TAnswers, TCorrectAnswers } from '@/components/global'
 import { IQuiz } from '@/components/Quiz/Quiz.d'
 import QuizResults from '@/components/Quiz/QuizResults/QuizResults.component'
 import QuizAnswers from '@/components/Quiz/QuizAnswers/QuizAnswers.component'
+import Loader from '@/components/Loader/Loader.component'
 
 const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
     const [stateQuestionNumber, setStateQuestionNumber] = useState<number>(0)
@@ -108,7 +109,7 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
                     answers={stateAnswers}
                 />
             ) : (
-                <p>Loading...</p>
+                <Loader loading size={80} color="#7f58af" duration="1s" />
             )}
             {isLastQuestion && (
                 <QuizResults
