@@ -6,9 +6,12 @@ import { EAnswerStatus, TAnswers, TCorrectAnswers } from '@/components/global'
 import { IQuiz } from '@/components/Quiz/Quiz.d'
 import QuizResults from '@/components/Quiz/QuizResults/QuizResults.component'
 import QuizAnswers from '@/components/Quiz/QuizAnswers/QuizAnswers.component'
-import Loader from '@/components/Loader/Loader.component'
 
-const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
+const Quiz: React.FC<IQuiz> = ({
+    questionsArray,
+    questionsNumber,
+    quizName,
+}) => {
     const [stateQuestionNumber, setStateQuestionNumber] = useState<number>(0)
     const [stateStatusShown, setStateStatusShown] = useState<boolean>(false)
     const [stateCurrentQuestionCorrect, setStateCurrentQuestionCorrect] =
@@ -18,6 +21,7 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
         number[]
     >([])
 
+    const questions = questionsArray?.length > 0
     const isLastQuestion = stateQuestionNumber === questionsArray?.length
     const switchQuestionWithCorrectAnswer = 1000
     const switchQuestionWithWrongAnswer = 2000
@@ -93,9 +97,9 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
             <Header
                 currentQuestion={stateQuestionNumber}
                 maxQuestions={questionsArray.length}
-                course={'Professional Scrum Developer I'}
+                course={quizName}
             />
-            {questionsArray?.length ? (
+            {questions && (
                 <QuizAnswers
                     handleClickInputSelectAnswers={
                         handleClickInputSelectAnswers
@@ -108,10 +112,8 @@ const Quiz: React.FC<IQuiz> = ({ questionsArray, questionsNumber }) => {
                     stateStatusShown={stateStatusShown}
                     answers={stateAnswers}
                 />
-            ) : (
-                <Loader loading size={80} color="#7f58af" duration="1s" />
             )}
-            {isLastQuestion && (
+            {questions && isLastQuestion && (
                 <QuizResults
                     questionsArray={questionsArray}
                     questionsIndexError={stateQuestionsIndexError}

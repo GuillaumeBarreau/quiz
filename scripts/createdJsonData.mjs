@@ -19,7 +19,7 @@ const generateFilesData = (markdownFilePath, name) => {
     fs.writeFileSync(`${dir}/index.json`, JSON.stringify(questions, null, 2))
 }
 
-const generateConfigData = (file) => {
+const generateConfigData = () => {
     const dir = `../src/training.config.json`
 
     const config = filesConfig.map((file) => {
@@ -55,6 +55,6 @@ const generateAPIRoutes = (file) => {
 
 filesConfig.map((file) => {
     generateFilesData(file.path, file.shortTitle)
-    generateConfigData(file)
+    generateConfigData()
     generateAPIRoutes(file)
 })

@@ -1,31 +1,87 @@
-/* RippleLoader.css */
-.loader_container {
-    @apply inline-block relative;
+.loader_container
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    align-items: center;
 }
 
-.loader_container div {
-    @apply absolute border-4 border-white opacity-100 rounded-full animate-loader;
-}
-
-@keyframes ripple {
-    0% {
-        top: 45%;
-        left: 45%;
-        width: 0;
-        height: 0;
-        opacity: 1;
-    }
-    100% {
-        top: 0;
-        left: 0;
-        width: 90%;
-        height: 90%;
-        opacity: 0;
-    }
-}
-
-.animate-loader {
-    animation-name: ripple;
-    animation-timing-function: cubic-bezier(0, 0.2, 0.8, 1);
+.loader_upper_bar
+{
+    animation: upperBar linear;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: border-box;
+}
+
+.loader_middle_bar
+{
+    animation: middlebar ease;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: border-box;
+    
+}
+
+.loader_bottom_bar
+{
+    animation: bottombar ease;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform-origin: center;
+    transform-box: border-box;
+}
+
+@keyframes upperBar {
+    0%
+    {
+     transform: translateX(0px);
+    }
+    50%
+    {
+        transform: translateX(15px);
+    }
+   100%
+    {
+     transform: translateX(0px);
+    }
+}
+
+
+@keyframes middlebar {
+    0%
+    {
+     transform: translateX(-20px);
+    }
+    50%
+    {
+        transform: translateX(0px);
+    }
+   100%
+    {
+     transform: translateX(-20px);
+    }
+
+    
+}
+
+@keyframes bottombar {
+    0%
+    {
+     transform: translateX(0px);
+    }
+    50%
+    {
+        transform: translateX(10px);
+    }
+   100%
+    {
+     transform: translateX(0px);
+    }
+
+
 }

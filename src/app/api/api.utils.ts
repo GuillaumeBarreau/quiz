@@ -24,7 +24,7 @@ export const getFileData = async  (req: Request, res: NextApiResponse, dataFileP
             })
 
         const data = generateQuiz(jsonData, questionsCount)
-
+            
         return NextResponse.json({ data })
     }
 }
