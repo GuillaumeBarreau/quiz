@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 function SliderInput() {
     const [value, setValue] = useState(0)
-    const handleChange = (value) => setValue(value)
+    const handleChange = (value: string | number) => setValue(Number(value))
 
     return (
         <div className="flex">
@@ -15,13 +15,13 @@ function SliderInput() {
                 />
                 <button
                     className="px-2 py-1 border rounded ml-2"
-                    onClick={() => handleChange(value + 1)}
+                    onClick={() => handleChange(Number(value) + 1)}
                 >
                     +
                 </button>
                 <button
                     className="px-2 py-1 border rounded ml-2"
-                    onClick={() => handleChange(value - 1)}
+                    onClick={() => handleChange(Number(value) - 1)}
                 >
                     -
                 </button>
