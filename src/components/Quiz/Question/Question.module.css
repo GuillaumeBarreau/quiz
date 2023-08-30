@@ -2,5 +2,4 @@
     @apply text-blue-950 text-center font-semibold;
     @apply flex justify-center;
     @apply p-5 rounded-lg;
-    @apply w-[600px];
 }

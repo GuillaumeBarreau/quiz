@@ -4,6 +4,6 @@ import { getFileData } from '@/app/api/api.utils'
 const dataFilePath = "data/PSM_01/index.json"
 
 export async function GET(req: Request, res: NextApiResponse) {
-    const questionCount = 1
+    const questionCount = 80
     return getFileData(req, res, dataFilePath, questionCount)
 }
