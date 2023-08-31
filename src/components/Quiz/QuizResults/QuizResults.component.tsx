@@ -20,6 +20,11 @@ const QuizResults: React.FC<IQuizResults> = (props) => {
         window.location.reload()
     }
 
+    const colors = ['light', 'medium', 'dark']
+    const colorValue = questionsArray.map(
+        () => colors[Math.floor(Math.random() * colors.length)]
+    )
+
     return (
         <div className={styles.results_container}>
             {isFinite(correctAnswers) && (
@@ -31,8 +36,40 @@ const QuizResults: React.FC<IQuizResults> = (props) => {
                 <Button onClick={handleButtonClickRetry}>Retry</Button>
                 <Button onClick={handleButtonClickHome}>Home</Button>
             </ButtonGroup>
+
+            <div className="flex flex-wrap mb-5 justify-center">
+                {questionsArray.map((question, index) => {
+                    return (
+                        <a
+                            key={`link_${question.position}`}
+                            href={`#question_${question.position}`}
+                            className="m-1"
+                        >
+                            <div
+                                style={{
+                                    width: '24px',
+                                    height: '24px',
+                                }}
+                                className={`${
+                                    questionsIndexError.includes(
+                                        question.position
+                                    )
+                                        ? styles[
+                                              `results_error_${colorValue[index]}`
+                                          ]
+                                        : styles[
+                                              `results_success_${colorValue[index]}`
+                                          ]
+                                }`}
+                            ></div>
+                        </a>
+                    )
+                })}
+            </div>
             {questionsArray.map((question, index) => {
-                const isCorrectAnswer = questionsIndexError.includes(index)
+                const isCorrectAnswer = questionsIndexError.includes(
+                    question.position
+                )
 
                 if (!question?.question && !question.correctAnswer?.length) {
                     return null
@@ -40,11 +77,12 @@ const QuizResults: React.FC<IQuizResults> = (props) => {
 
                 return (
                     <div
-                        key={index}
+                        key={`block_${question.position}`}
+                        id={`question_${question.position}`}
                         className={`${styles.results_wrapper} ${
                             isCorrectAnswer
-                                ? styles.results_wrapper__error
-                                : styles.results_wrapper__success
+                                ? styles[`results_error_${colorValue[index]}`]
+                                : styles[`results_success_${colorValue[index]}`]
                         }`}
                     >
                         <div className={styles.results_question}>

@@ -28,30 +28,6 @@
     @apply border-yellow-300 bg-yellow-300;
 }
 
-.inputCheckboxAnswer_label {
-    @apply flex items-center;
-}
-
-.inputCheckboxAnswer_label:hover {
-    @apply cursor-pointer
-}
-
-.inputCheckboxAnswer_input {
-    display: none;
-    @apply h-6 w-6;
-    @apply bg-blue-400;
-}
-
-.inputCheckboxAnswer_text {
-    @apply ml-1 m-1 p-1;
-}
-
-@screen md {
-    .inputCheckboxAnswer_text {
-        @apply ml-1 m-1 p-1;
-    }
-}
-
 @screen lg {
     .inputCheckboxAnswer_container {
         @apply w-[600px];

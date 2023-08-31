@@ -52,7 +52,7 @@ const Quiz: React.FC<IQuiz> = ({
             setStateCurrentQuestionCorrect(false)
             setStateQuestionsIndexError((questionsIndexError) => [
                 ...questionsIndexError,
-                stateQuestionNumber,
+                questionsArray[stateQuestionNumber].position,
             ])
         }
 

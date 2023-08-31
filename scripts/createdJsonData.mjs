@@ -3,8 +3,8 @@ import formatMDtoJSON from './utils/formatMDtoJSON.mjs'
 import filesConfig from './data.config.mjs'
 import routeFileTemplate from './routeFile.template.mjs'
 
-const generateFilesData = (markdownFilePath, name) => {
-    const questionsString = fs.readFileSync(markdownFilePath, {
+const generateFilesData = (mdFilePath, name) => {
+    const questionsString = fs.readFileSync(mdFilePath, {
         encoding: 'utf8',
     })
 
@@ -40,16 +40,18 @@ const generateAPIRoutes = (file) => {
     const apiFolder = `../src/app/api/practice-mode/quiz`
     const apiRouteFolder = `${apiFolder}/${file.url}`
 
+    // Create api folder if it doesn't exist
     if (!fs.existsSync(apiFolder)) {
         fs.mkdirSync(apiFolder)
     }
 
+    // Create api route folder if it doesn't exist
     if (!fs.existsSync(apiRouteFolder)) {
         fs.mkdirSync(apiRouteFolder)
     }
 
+    // Create route file
     const template = routeFileTemplate(file.shortTitle)
-
     fs.writeFileSync(`${apiRouteFolder}/route.ts`, template, 'utf8')
 }
 

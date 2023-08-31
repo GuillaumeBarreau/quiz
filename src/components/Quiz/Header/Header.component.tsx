@@ -1,4 +1,4 @@
-import Progress from '@/components/CircularDashedProgress/CircularDashedProgress.component'
+import { CircularDashed } from '@/components/ProgressBar'
 import { IHeader } from './Header.d'
 import styles from './Header.module.css'
 
@@ -13,7 +13,7 @@ const Header: React.FC<IHeader> = (props) => {
                     <p className={styles.header_label}>
                         Question: {currentQuestion + 1} / {maxQuestions}
                     </p>
-                    <Progress
+                    <CircularDashed
                         progress={currentQuestion}
                         maxValue={maxQuestions}
                     />
