@@ -1,4 +1,4 @@
-import { IQuestion, TAnswers } from '@/components/global'
+import { IQuestion, TAnswers } from '@/types'
 
 export interface IQuizAnswers {
     selectAnswers: any

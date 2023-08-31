@@ -1,4 +1,4 @@
-import { IQuestion } from '@/components/global';
+import { IQuestion } from '@/types';
 
 export interface IQuiz {
     questionsArray: IQuestion[];
