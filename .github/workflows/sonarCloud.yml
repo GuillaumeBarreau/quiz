@@ -13,6 +13,17 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0  
+
+      - name: ⚒️ Install dependencies
+        run: |
+          npm install
+
+      - name: 👟 Run Lint
+        run: npm run lint
+
+      - name: 👟 Run Unit tests
+        run: npm run test
+        
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
