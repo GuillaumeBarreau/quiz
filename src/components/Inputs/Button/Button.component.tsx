@@ -11,6 +11,7 @@ const Button = (props: PropsWithChildren<IButton>) => {
 
     return (
         <button
+            data-testid="Button_component"
             onClick={onClick}
             disabled={disabled}
             className={styles.button_container}
