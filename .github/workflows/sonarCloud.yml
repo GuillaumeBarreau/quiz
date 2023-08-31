@@ -1,4 +1,4 @@
-name: SonarCloud Scan
+name: SonarCloud Code Analysis
 on:
   push:
     branches:
@@ -14,17 +14,16 @@ jobs:
         with:
           fetch-depth: 0  
 
-      - name: ⚒️ Install dependencies
-        run: |
-          npm install
+      - name: 🤡 Install dependencies
+        run: npm install
 
-      - name: 👟 Run Lint
+      - name: 🤪 Run Lint
         run: npm run lint
 
-      - name: 👟 Run Unit tests
+      - name: 😱 Run Unit tests
         run: npm run test:ci
         
-      - name: SonarCloud Scan
+      - name: 🧐 SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  

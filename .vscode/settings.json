@@ -3,6 +3,7 @@
         ".vscode/tailwind.json"
     ],
     "conventionalCommits.scopes": [
-        "core"
+        "core",
+        "stores"
     ]
 }
