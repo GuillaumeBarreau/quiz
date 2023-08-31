@@ -7,8 +7,14 @@ const CardFormation = ({
     shortTitle,
     url,
 }: ICardFormation) => {
+
+    if (!url) {
+        return null
+    }
+
     return (
         <a
+            data-testid="CardFormation_component"
             href={`/practice-mode/quiz/${url}`}
             className={styles.cardFormation_wrapper}
         >
@@ -26,15 +32,21 @@ const CardFormation = ({
                 ></path>
                 <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path>
             </svg>
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {longTitle}
-            </h2>
-            <div>
-                <p className="font-normal text-gray-700 dark:text-gray-400">
-                    {shortTitle}
-                </p>
-                <p>{description}</p>
-            </div>
+            {longTitle && (
+                <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {longTitle}
+                </h2>
+            )}
+            {(shortTitle || description) && (
+                <div>
+                    {shortTitle && (
+                        <p className="font-normal text-gray-700 dark:text-gray-400">
+                            {shortTitle}
+                        </p>
+                    )}
+                    {description && <p>{description}</p>}
+                </div>
+            )}
         </a>
     )
 }

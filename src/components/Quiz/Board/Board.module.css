@@ -65,6 +65,7 @@
     @apply bg-red-100;
 }
 
-.board_error_neutral, .board_error_neutral {
+.board_error_neutral, 
+.board_success_neutral {
     @apply bg-gray-200;
 }
