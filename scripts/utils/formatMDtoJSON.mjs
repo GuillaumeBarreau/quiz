@@ -16,7 +16,6 @@ const formatMDtoJSON = (readme) => {
             position = position += 1
             question = line.replace('### ', '').trim()
 
-            console.log(question)
             answers = []
             correctAnswer = []
         } else if (line.startsWith('- [x]')) {

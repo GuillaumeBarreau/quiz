@@ -43,8 +43,7 @@ const Quiz: React.FC<IQuiz> = ({
         const timer =
             status === EAnswerStatus.Correct
                 ? switchQuestionWithCorrectAnswer
-                : switchQuestionWithWrongAnswer *
-                  questionsArray[stateQuestionNumber].correctAnswer.length
+                : switchQuestionWithWrongAnswer 
 
         if (status === EAnswerStatus.Correct) {
             setStateCurrentQuestionCorrect(true)
