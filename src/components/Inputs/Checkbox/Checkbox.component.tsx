@@ -9,15 +9,21 @@ const Checkbox: React.FC<ICheckbox> = (props) => {
     }
 
     return (
-        <label className={styles.checkbox_container}>
+        <label
+            data-testid="Checkbox_component"
+            className={styles.checkbox_container}
+        >
             <input
+                data-testid="Checkbox_input"
                 type="checkbox"
                 className={styles.checkbox_input}
                 checked={checked}
                 onChange={() => onChangeInputChecked()}
                 disabled={disabled}
             />
-            <span className={styles.checkbox_text}>{label}</span>
+            <span data-testid="Checkbox_label" className={styles.checkbox_text}>
+                {label}
+            </span>
         </label>
     )
 }

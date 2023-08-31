@@ -9,7 +9,14 @@ const ButtonGroup = (props: PropsWithChildren<IButtonGroup>) => {
         return null
     }
 
-    return <div className={styles.buttonGroup_container}>{children}</div>
+    return (
+        <div
+            data-testid="ButtonGroup_component"
+            className={styles.buttonGroup_container}
+        >
+            {children}
+        </div>
+    )
 }
 
 export default ButtonGroup
