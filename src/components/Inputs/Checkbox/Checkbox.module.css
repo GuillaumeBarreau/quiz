@@ -1,0 +1,23 @@
+.checkbox_container {
+    @apply flex items-center;
+}
+
+.checkbox_container:hover {
+    @apply cursor-pointer
+}
+
+.checkbox_input {
+    @apply hidden;
+    @apply h-6 w-6;
+    @apply bg-blue-400;
+}
+
+.checkbox_text {
+    @apply ml-1 m-1 p-1;
+}
+
+@screen md {
+    .checkbox_text {
+        @apply ml-1 m-1 p-1;
+    }
+}

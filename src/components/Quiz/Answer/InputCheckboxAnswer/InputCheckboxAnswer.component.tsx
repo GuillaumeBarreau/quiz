@@ -1,5 +1,6 @@
 import { IInputCheckboxAnswer } from './InputCheckboxAnswer.d'
 import styles from './InputCheckboxAnswer.module.css'
+import { Checkbox } from '@/components/Inputs'
 
 const InputCheckboxAnswer: React.FC<IInputCheckboxAnswer> = (props) => {
     const {
@@ -28,18 +29,12 @@ const InputCheckboxAnswer: React.FC<IInputCheckboxAnswer> = (props) => {
                     : ''
             }`}
         >
-            <label className={styles.inputCheckboxAnswer_label}>
-                <input
-                    type="checkbox"
-                    className={styles.inputCheckboxAnswer_input}
-                    checked={isSelectAnswers}
-                    onChange={() => handleClickSelectAnswers(answer)}
-                    disabled={disabled}
-                />
-                <span className={styles.inputCheckboxAnswer_text}>
-                    {answer}
-                </span>
-            </label>
+            <Checkbox
+                label={answer}
+                checked={isSelectAnswers}
+                onChangeInputChecked={() => handleClickSelectAnswers(answer)}
+                disabled={disabled}
+            />
         </div>
     )
 }

@@ -1,8 +1,9 @@
 'use client'
 import React, { useState } from 'react'
 import styles from './progress.module.css'
+import { ICircularDashed } from './CircularDashed.d'
 
-const Progress = ({
+const CircularDashed: React.FC<ICircularDashed> = ({
     progress = 0,
     strokeWidth = 8,
     ballStrokeWidth = 1,
@@ -103,6 +104,4 @@ const Progress = ({
     )
 }
 
-Progress.displayName = 'Progress'
-
-export default React.memo(Progress)
+export default React.memo(CircularDashed)
