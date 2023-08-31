@@ -1,4 +1,4 @@
-import { THandleClickSelectAnswers, TSelectAnswers } from '@/components/global'
+import { THandleClickSelectAnswers, TSelectAnswers } from '@/types'
 
 export interface IInputCheckboxAnswer {
     answer: string

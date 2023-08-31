@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface IPropsEndQuiz {
     numCorrect: number
     questionsNumber: number

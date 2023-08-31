@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import styles from './Quiz.module.css'
 import Header from '@/components/Quiz/Header'
-import { EAnswerStatus, TAnswers, TCorrectAnswers } from '@/components/global'
+import { EAnswerStatus, TAnswers, TCorrectAnswers } from '@/types'
 import { IQuiz } from '@/components/Quiz/Quiz.d'
 import QuizResults from '@/components/Quiz/QuizResults/QuizResults.component'
 import QuizAnswers from '@/components/Quiz/QuizAnswers/QuizAnswers.component'

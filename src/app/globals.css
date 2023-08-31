@@ -41,6 +41,24 @@
     --callout-border-rgb: 172, 175, 176;
     --card-rgb: 180, 185, 188;
     --card-border-rgb: 131, 134, 135;
+
+    /* primary brand color - skyblue  */ 
+    --primary-color:     skyblue;
+    --primary-color-lt:  lighten($primary-color, 5%);
+    --primary-color-ltr: lighten($primary-color, 10%);
+    --primary-color-dk:  darken($primary-color, 5%);
+    --primary-color-dkr: darken($primary-color, 10%);
+
+    /* secondary brand color - hotpink  */
+    --secondary-color:     hotpink;
+    --secondary-color-lt:  lighten($secondary-color, 5%);
+    --secondary-color-ltr: lighten($secondary-color, 10%);
+    --secondary-color-dk:  darken($secondary-color, 5%);
+    --secondary-color-dkr: darken($secondary-color, 10%);
+
+    /* neutrals */
+    --neutral-color-min: #fff;
+    --neutral-color-max: #000;
 }
 
 @media (prefers-color-scheme: dark) {

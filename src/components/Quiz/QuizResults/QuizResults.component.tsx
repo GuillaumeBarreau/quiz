@@ -22,9 +22,11 @@ const QuizResults: React.FC<IQuizResults> = (props) => {
     }
 
     const colors = ['light', 'medium', 'dark']
-    const colorValue = questionsArray.map(
-        () => colors[Math.floor(Math.random() * colors.length)]
-    )
+    const colorValue = questionsArray.map(() => {
+        const randomIndex = new Uint32Array(1)
+        window.crypto.getRandomValues(randomIndex)
+        return colors[randomIndex[0] % colors.length]
+    })
 
     return (
         <div className={styles.results_container}>

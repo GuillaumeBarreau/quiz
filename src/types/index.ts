@@ -21,3 +21,9 @@ export interface IQuestion {
     answers: TAnswers,
     correctAnswer: TCorrectAnswers
 }
+
+export enum EContrastedMode {
+  Light = "light",
+  Medium = "medium",
+  Dark = "dark",
+}

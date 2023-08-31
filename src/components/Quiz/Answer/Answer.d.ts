@@ -3,7 +3,7 @@ import {
     THandleClickSelectAnswers,
     TOptionAnswers,
     TSelectAnswers,
-} from '@/components/global'
+} from '@/types'
 
 export interface IAnswer {
     optionAnswers: TOptionAnswers
