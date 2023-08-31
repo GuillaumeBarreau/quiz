@@ -1,5 +1,6 @@
 import { useRouter } from 'next/navigation'
 import { Button, ButtonGroup } from '@/components/Inputs/'
+import Board from '@/components/Quiz/Board'
 import { IQuizResults } from './QuizResults.d'
 import styles from './QuizResults.module.css'
 
@@ -37,35 +38,12 @@ const QuizResults: React.FC<IQuizResults> = (props) => {
                 <Button onClick={handleButtonClickHome}>Home</Button>
             </ButtonGroup>
 
-            <div className="flex flex-wrap mb-5 justify-center">
-                {questionsArray.map((question, index) => {
-                    return (
-                        <a
-                            key={`link_${question.position}`}
-                            href={`#question_${question.position}`}
-                            className="m-1"
-                        >
-                            <div
-                                style={{
-                                    width: '24px',
-                                    height: '24px',
-                                }}
-                                className={`${
-                                    questionsIndexError.includes(
-                                        question.position
-                                    )
-                                        ? styles[
-                                              `results_error_${colorValue[index]}`
-                                          ]
-                                        : styles[
-                                              `results_success_${colorValue[index]}`
-                                          ]
-                                }`}
-                            ></div>
-                        </a>
-                    )
-                })}
-            </div>
+            <Board
+                questionsArray={questionsArray}
+                questionsIndexError={questionsIndexError}
+                colorValue={colorValue}
+            />
+
             {questionsArray.map((question, index) => {
                 const isCorrectAnswer = questionsIndexError.includes(
                     question.position

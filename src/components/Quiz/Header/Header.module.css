@@ -5,6 +5,18 @@
     @apply text-white;
 }
 
+.header_container > * {
+     flex: 1;
+}
+
+.header_container > :nth-child(2) {
+    justify-content: center;
+}
+
+.header_container > :nth-child(3) {
+    text-align: end;
+}
+
 .header_center {
     @apply contents;
 }

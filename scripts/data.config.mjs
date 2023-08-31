@@ -22,7 +22,6 @@ const dataObjectTemplate = () => {
 
         return config
     } catch (error) {
-        console.error('dataObjectTemplate error ; ', error)
         return []
     }
 }

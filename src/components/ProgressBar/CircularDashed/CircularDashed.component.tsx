@@ -1,4 +1,3 @@
-'use client'
 import React, { useState } from 'react'
 import styles from './progress.module.css'
 import { ICircularDashed } from './CircularDashed.d'
