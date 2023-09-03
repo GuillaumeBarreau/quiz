@@ -4,6 +4,10 @@
     ],
     "conventionalCommits.scopes": [
         "core",
-        "stores"
+        "stores",
+        "home"
+    ],
+    "cSpell.words": [
+        "Swiper"
     ]
 }
