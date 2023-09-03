@@ -1,12 +1,9 @@
-import { ICardFormation } from './CardSection.d'
+import { ICardSection } from './CardSection.d'
 import styles from './CardFormation.module.css'
 
-const CardFormation = ({
-    description,
-    longTitle,
-    shortTitle,
-    url,
-}: ICardFormation) => {
+const CardFormation: React.FC<ICardSection> = (props) => {
+    const { description, longTitle, shortTitle, url } = props
+
     if (!url) {
         return null
     }

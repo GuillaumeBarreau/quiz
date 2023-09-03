@@ -5,6 +5,11 @@ import Category from './Category/Category.component'
 
 const Categories: React.FC<ICategories> = (props) => {
     const { images } = props
+
+    if (!images.length) {
+        return null
+    }
+    
     return (
         <div className={styles.categories_container}>
             {images?.map((image) => (
