@@ -3,7 +3,7 @@ export interface ISection {
     listQuizzes: {
         id: string,
         title: string,
-        ulr: string,
+        url: string,
         description: string,
         image: {
             id: string,

@@ -2,6 +2,10 @@
     padding: 0 0 26px;
 }
 
+.section_title {
+    padding: 1.2rem 0;
+}
+
 .section_content {
     display: grid;
     grid-gap: 25px;
