@@ -1,5 +1,6 @@
 import { ProviderStores } from '@/stores/provider'
 import { Inter } from 'next/font/google'
+import { NextAuthProvider } from './_nextAuth/providers'
 import './globals.css'
 
 import type { Metadata } from 'next'
@@ -19,8 +20,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <ProviderStores>{children}</ProviderStores>
+                <NextAuthProvider>
+                    <ProviderStores>{children}</ProviderStores>
+                </NextAuthProvider>
             </body>
         </html>
     )
 }
+

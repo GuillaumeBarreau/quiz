@@ -11,6 +11,7 @@ const images = [
     'https://drive.google.com/uc?id=1dXN1Zedwtg_Sy_MsIjdSRHXTWfF8u8dB',
     'https://drive.google.com/uc?id=1Vl-dpwmWcV_eNyPHRIivRJMw_OUy28kE',
 ]
+
 const categories = [
     {
         id: '1',

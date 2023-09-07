@@ -1,9 +1,22 @@
+'use client'
+
+import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
+import Loader from '@/components/Loader/Loader.component'
+import Banner from '@/components/Banner'
+import styles from './page.module.css'
 
 export default function Home() {
-    redirect('/practice-mode')
+    const { data: session, status } = useSession()
+
+    if (status === 'loading') {
+        return <Loader />
+    }
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+        <main className={styles.page_container}>
+            {session && redirect('/practice-mode')}
+            <Banner />
+        </main>
     )
 }
