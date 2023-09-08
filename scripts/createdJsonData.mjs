@@ -22,18 +22,31 @@ const generateFilesData = (mdFilePath, name) => {
 const generateConfigData = () => {
     const dir = `../src/training.config.json`
 
-    const config = filesConfig.map((file) => {
-        return {
-            shortTitle: file.shortTitle,
-            url: file.url,
-            description: file.description,
-            longTitle: file.longTitle,
+    const configApp = {
+        count: 0,
+        categories: [],
+    }
+
+    filesConfig.forEach((file) => {
+        configApp.count = configApp.count + 1
+
+        if (!configApp[file.category]) {
+            configApp[file.category] = []
         }
+
+        if (!configApp.categories.includes(file.category)) {
+            configApp.categories.push(file.category)
+        }
+
+        configApp[file.category].push({
+            shortTitle: file?.shortTitle,
+            url: file?.url,
+            description: file?.description,
+            longTitle: file?.longTitle,
+        })
     })
 
-    if (!fs.existsSync(dir)) {
-        fs.writeFileSync(`${dir}`, JSON.stringify(config, null, 2))
-    }
+    fs.writeFileSync(`${dir}`, JSON.stringify(configApp, null, 2))
 }
 
 const generateAPIRoutes = (file) => {
