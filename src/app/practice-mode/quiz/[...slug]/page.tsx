@@ -1,7 +1,7 @@
 import Quiz from '@/components/Quiz/Quiz'
-import { IQuiz } from './quiz.d'
+import { IQuiz } from './quiz'
 
-async function getData(quizName: string) {
+async function getData(quizName: string, category: string) {
     const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
 
     const DOMAIN =
@@ -10,7 +10,7 @@ async function getData(quizName: string) {
 
     try {
         const questionsFetch = await fetch(
-            `http://${DOMAIN}/api/practice-mode/quiz/${quizName}`,
+            `http://${DOMAIN}/api/practice-mode/quiz/${category}/${quizName}`,
             { cache: 'no-store' }
         )
         const questions = await questionsFetch.json()
@@ -28,8 +28,10 @@ async function getData(quizName: string) {
 }
 
 const Page: React.FC<IQuiz> = async ({ params }) => {
-    const quizName = params?.slug
-    const { questions } = await getData(quizName)
+    const category = params?.slug[0]
+    const quizName = params?.slug[1]
+
+    const { questions } = await getData(quizName, category)
 
     return (
         <Quiz

@@ -8,7 +8,7 @@ const Header: React.FC<IHeader> = (props) => {
     return (
         <>
             <div className={styles.header_container}>
-                <p className={styles.header_mode}>Practice Test Exam</p>
+                <p className={styles.header_mode}>Practice Mode</p>
                 {currentQuestion !== maxQuestions && (
                     <div className={styles.header_center}>
                         <p className={styles.header_label}>
