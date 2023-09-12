@@ -6,7 +6,8 @@
         "core",
         "stores",
         "home",
-        "auth"
+        "auth",
+        "scripts"
     ],
     "cSpell.words": [
         "Swiper"
