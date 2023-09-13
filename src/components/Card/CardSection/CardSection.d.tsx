@@ -1,7 +1,4 @@
 export interface ICardSection {
-    image: {
-        src: string
-        alt: string
-    }
+    image: string
     url: string
 }

@@ -6,7 +6,7 @@ const Question: React.FC<IQuestion> = (props) => {
 
     return (
         <div className={styles.question_wrapper}>
-            <h1 className="text-xl">{question}</h1>
+            <h1 className={styles.question_text}>{question}</h1>
         </div>
     )
 }

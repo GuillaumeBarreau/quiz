@@ -27,20 +27,20 @@ const SwiperHeader: React.FC<ISwiperHeader> = (props) => {
                 slidesPerView={1}
                 spaceBetween={10}
             >
-                {images.map((el, i) => {
+                {images.map((image) => {
                     return (
                         <SwiperSlide
-                            key={`slide-${i}`}
+                            key={`slide-${image}`}
                             style={{ listStyle: 'none' }}
                         >
                             <Image
                                 className="slide"
-                                src={el}
+                                src={`/images/banner/${image}.png`}
                                 width={0}
                                 height={0}
-                                alt={`Slide ${i}`}
+                                alt={`Slide ${image}`}
                                 sizes="100vw"
-                                style={{ width: '100%', height: 'auto' }}
+                                style={{ width: '100%', height: '300px' }}
                             />
                         </SwiperSlide>
                     )

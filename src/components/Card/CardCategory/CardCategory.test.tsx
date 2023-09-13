@@ -1,14 +1,13 @@
 import { render } from '@testing-library/react'
-import CardSection from './CardSection.component'
-import { ICardSection } from './CardSection.d'
+import CardCategory from './CardCategory.component'
+import { ICardCategory } from './CardCategory.d'
 
-const defaultProps: ICardSection = {
-    image: 'image content',
-    url: 'url-content',
+const defaultProps: ICardCategory = {
+    category: 'category content',
 }
 
-const setup = (props: ICardSection) => {
-    return render(<CardSection {...props} />)
+const setup = (props: ICardCategory) => {
+    return render(<CardCategory {...props} />)
 }
 
 describe('CardSection component', () => {
@@ -17,36 +16,36 @@ describe('CardSection component', () => {
         expect(container).toBeInTheDocument()
     })
 
-    it('should renders a CardFormation correctly with url value', () => {
+    it('should renders a CardCategory correctly with category value', () => {
         const { getByTestId } = setup({
             ...defaultProps,
         })
-        const buttonElement = getByTestId('CardSection_component')
+        const buttonElement = getByTestId('CardCategory_component')
         expect(buttonElement.getAttribute('href')).toBe(
-            `/practice-mode/quiz/${defaultProps.url}`
+            `#${defaultProps.category}`
         )
     })
 
-    it('should does not render when url prop is undefined', () => {
+    it('should does not render when category prop is undefined', () => {
         const { container } = setup({
             ...defaultProps,
-            url: undefined as never,
+            category: undefined as never,
         })
         expect(container).toBeEmptyDOMElement()
     })
 
-    it('should does not render when url prop is null', () => {
+    it('should does not render when category prop is null', () => {
         const { container } = setup({
             ...defaultProps,
-            url: null as never,
+            category: null as never,
         })
         expect(container).toBeEmptyDOMElement()
     })
 
-    it('should does not render when url prop is empty', () => {
+    it('should does not render when category prop is empty', () => {
         const { container } = setup({
             ...defaultProps,
-            url: '' as never,
+            category: '' as never,
         })
         expect(container).toBeEmptyDOMElement()
     })
