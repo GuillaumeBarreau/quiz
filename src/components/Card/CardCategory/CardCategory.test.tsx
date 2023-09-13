@@ -16,21 +16,13 @@ describe('CardSection component', () => {
         expect(container).toBeInTheDocument()
     })
 
-    it('should renders a CardFormation correctly with category value', () => {
-        const { getByText } = setup({
-            ...defaultProps,
-        })
-        const buttonElement = getByText(defaultProps.category)
-        expect(buttonElement).toBeInTheDocument()
-    })
-
-    it('should renders a CardFormation correctly with category value', () => {
+    it('should renders a CardCategory correctly with category value', () => {
         const { getByTestId } = setup({
             ...defaultProps,
         })
-        const buttonElement = getByTestId('CardFormation_component')
+        const buttonElement = getByTestId('CardCategory_component')
         expect(buttonElement.getAttribute('href')).toBe(
-            `/practice-mode/quiz/${defaultProps.category}`
+            `#${defaultProps.category}`
         )
     })
 

@@ -14,6 +14,7 @@ const CardSection: React.FC<ICardSection> = (props) => {
             <a
                 className={styles.cardSection_content}
                 href={`/practice-mode/quiz/${url}`}
+                data-testid="CardSection_component"
             >
                 <Image
                     className={styles.cardSection_image}

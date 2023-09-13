@@ -11,7 +11,11 @@ const CardCategory: React.FC<ICardCategory> = (props) => {
 
     return (
         <div className={styles.cardCategory_container}>
-            <a className={styles.cardCategory_content} href={`#${category}`}>
+            <a
+                className={styles.cardCategory_content}
+                href={`#${category}`}
+                data-testid="CardCategory_component"
+            >
                 <Image
                     src={'/images/nothing.png'}
                     alt={category}
