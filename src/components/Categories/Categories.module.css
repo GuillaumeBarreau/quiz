@@ -1,8 +1,7 @@
 .categories_container {
+    justify-content: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    display: grid;
-    grid-gap: 25px;
-    gap: 25px;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
 }

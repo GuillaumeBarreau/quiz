@@ -4,21 +4,21 @@ import styles from './Section.module.css'
 import CardSection from '../Card/CardSection'
 
 const Section: React.FC<ISection> = (props) => {
-    const { title, listQuizzes } = props
+    const { title, dataConfig } = props
 
-    if (!listQuizzes.length) {
+    if (!dataConfig?.length) {
         return null
     }
 
     return (
-        <div className={styles.section_container}>
+        <div className={styles.section_container} id={title}>
             <h2 className={styles.section_title}>{title}</h2>
             <div className={styles.section_content}>
-                {listQuizzes?.map((quiz) => (
+                {dataConfig?.map?.((data) => (
                     <CardSection
-                        key={quiz.id}
-                        image={quiz.image}
-                        url={quiz.url}
+                        key={data.shortTitle}
+                        image={data.shortTitle}
+                        url={data.url}
                     />
                 ))}
             </div>

@@ -11,15 +11,15 @@ const CardSection: React.FC<ICardSection> = (props) => {
 
     return (
         <div className={styles.cardSection_container}>
-            <a className={styles.cardSection_content}>
+            <a
+                className={styles.cardSection_content}
+                href={`/practice-mode/quiz/${url}`}
+            >
                 <Image
                     className={styles.cardSection_image}
-                    src={image.src}
-                    alt={image.alt}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{ width: '100%', height: 'auto' }}
+                    src={`/images/nothing.png`}
+                    alt={image}
+                    fill
                 />
             </a>
         </div>
