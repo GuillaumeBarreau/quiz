@@ -1,18 +1,22 @@
 import fs from 'fs'
 
 const dataObjectTemplate = () => {
-    const configDir = 'config'
+    const configDir = './data'
     try {
         const folders = fs.readdirSync(configDir)
         const config = []
+
         folders.forEach((folder) => {
-            const files = fs.readdirSync(`${configDir}/${folder}`)
-            return files.forEach((file) => {
+            const foldersCategories = fs.readdirSync(`${configDir}/${folder}`)
+
+            foldersCategories.forEach((category) => {
                 const fileBuffer = fs.readFileSync(
-                    `./config/${folder}/${file}`,
+                    `${configDir}/${folder}/${category}/${category}.json`,
                     'utf-8'
                 )
+
                 const fileJson = JSON.parse(fileBuffer)
+
                 config.push({
                     category: folder,
                     description: fileJson.description,
@@ -20,7 +24,7 @@ const dataObjectTemplate = () => {
                     shortTitle: fileJson.shortTitle,
                     url: fileJson.url,
                     get path() {
-                        return `./data/${folder}/${this.shortTitle}.md`
+                        return `./data/${folder}/${this.shortTitle}/${this.shortTitle}.md`
                     },
                 })
             })
@@ -32,6 +36,4 @@ const dataObjectTemplate = () => {
     }
 }
 
-const dataConfig = dataObjectTemplate()
-
-export default dataConfig
+export default dataObjectTemplate()

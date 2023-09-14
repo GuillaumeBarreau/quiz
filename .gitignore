@@ -15,9 +15,14 @@
 # production
 /build
 
+# data
+/data
+
 # misc
 .DS_Store
 *.pem
+/src/training.config.json
+
 
 # debug
 npm-debug.log*

@@ -4,6 +4,11 @@ import filesConfig from './data.config.mjs'
 import routeFileTemplate from './routeFile.template.mjs'
 
 const generateFilesData = (mdFilePath, name, category) => {
+
+    if (!fs.existsSync('../data')) {
+        fs.mkdirSync('../data')
+    }
+
     const questionsString = fs.readFileSync(mdFilePath, {
         encoding: 'utf8',
     })
