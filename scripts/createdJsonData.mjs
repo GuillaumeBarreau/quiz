@@ -1,13 +1,15 @@
 import fs from 'fs'
+import path from 'path'
 import formatMDtoJSON from './utils/formatMDtoJSON.mjs'
 import filesConfig from './data.config.mjs'
 import routeFileTemplate from './routeFile.template.mjs'
 
 const generateFilesData = (mdFilePath, name, category) => {
+    const dataRootFolder = `../data`
+    const categoriesFolder = path.join(dataRootFolder, category)
+    const categoryNameFolder = path.join(categoriesFolder, name)
 
-    if (!fs.existsSync('../data')) {
-        fs.mkdirSync('../data')
-    }
+    createFolderIfNotExists(dataRootFolder)
 
     const questionsString = fs.readFileSync(mdFilePath, {
         encoding: 'utf8',
@@ -15,18 +17,13 @@ const generateFilesData = (mdFilePath, name, category) => {
 
     const questions = formatMDtoJSON(questionsString)
 
-    const dirCategory = `../data/${category}`
-    const dir = `${dirCategory}/${name}`
+    createFolderIfNotExists(categoriesFolder)
+    createFolderIfNotExists(categoryNameFolder)
 
-    if (!fs.existsSync(dirCategory)) {
-        fs.mkdirSync(dirCategory)
-    }
-
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir)
-    }
-
-    fs.writeFileSync(`${dir}/index.json`, JSON.stringify(questions, null, 2))
+    fs.writeFileSync(
+        `${categoryNameFolder}/index.json`,
+        JSON.stringify(questions, null, 2)
+    )
 }
 
 const generateConfigData = () => {
@@ -61,28 +58,24 @@ const generateConfigData = () => {
 }
 
 const generateAPIRoutes = (file) => {
-    const apiFolder = `../src/app/api/practice-mode/quiz`
-    const apiRouteFolderCategory = `${apiFolder}/${file.category}`
-    const apiRouteFolder = `${apiRouteFolderCategory}/${file.url}`
+    const apiRootFolder = '../src/app/api'
+    const apiFolder = path.join(apiRootFolder, 'practice-mode')
+    const apiRouteFolderCategory = path.join(apiFolder, file.category)
+    const apiRouteFolder = path.join(apiRouteFolderCategory, file.url)
 
-    // Create api folder if it doesn't exist
-    if (!fs.existsSync(apiFolder)) {
-        fs.mkdirSync(apiFolder)
-    }
+    createFolderIfNotExists(apiFolder)
+    createFolderIfNotExists(path.join(apiFolder, 'quiz'))
+    createFolderIfNotExists(apiRouteFolderCategory)
+    createFolderIfNotExists(apiRouteFolder)
 
-    // Create api route folder for Category if it doesn't exist
-    if (!fs.existsSync(apiRouteFolderCategory)) {
-        fs.mkdirSync(apiRouteFolderCategory)
-    }
-
-    // Create api route folder for file if it doesn't exist
-    if (!fs.existsSync(apiRouteFolder)) {
-        fs.mkdirSync(apiRouteFolder)
-    }
-
-    // Create route file
     const template = routeFileTemplate(file.shortTitle, file.category)
     fs.writeFileSync(`${apiRouteFolder}/route.ts`, template, 'utf8')
+}
+
+const createFolderIfNotExists = (folderPath) => {
+    if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath)
+    }
 }
 
 filesConfig.map((file) => {
