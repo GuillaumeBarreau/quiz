@@ -2,5 +2,4 @@
     min-height: calc(100vh - 70px);
     padding: 4% calc(3.5vw + 5px);
     position: relative;
-    overflow-x: hidden;
 }

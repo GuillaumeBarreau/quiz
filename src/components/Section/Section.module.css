@@ -1,17 +1,15 @@
 .section_container {
-    padding: 0 0 26px;
+    margin-top: 2rem;
 }
 
 .section_title {
-    padding: 1.2rem 0;
+    @apply text-xl font-semibold capitalize text-white;
+}
+
+.section_swiper {
+    padding-bottom: 40px;
 }
 
 .section_content {
-    display: grid;
-    grid-gap: 25px;
-    gap: 25px;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    @apply flex;
 }
