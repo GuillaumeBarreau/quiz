@@ -5,10 +5,6 @@ import { Pagination, A11y, Autoplay, EffectFade } from 'swiper/modules'
 import Image from 'next/image'
 import styles from './SwiperHeader.module.css'
 import { ISwiperHeader } from './SwiperHeader.d'
-import 'swiper/swiper-bundle.css'
-import 'swiper/css/autoplay'
-import 'swiper/css/a11y'
-import 'swiper/css/effect-fade'
 
 const swiperModules = [Pagination, A11y, Autoplay, EffectFade]
 

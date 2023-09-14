@@ -18,13 +18,13 @@ const CardSection: React.FC<ICardSection> = (props) => {
             >
                 <Image
                     className={styles.cardSection_image}
+                    // src={`/images/${image}.png`}
                     src={`/images/nothing.png`}
                     alt={image}
                     width={0}
                     height={0}
                     style={{
-                        width: '100%',
-                        height: '100%',
+                        backgroundSize: 'cover',
                         borderRadius: '3px',
                     }}
                 />

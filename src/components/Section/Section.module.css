@@ -4,6 +4,7 @@
 
 .section_title {
     @apply text-xl font-semibold capitalize text-white;
+    padding-left: 4rem;
 }
 
 .section_swiper {

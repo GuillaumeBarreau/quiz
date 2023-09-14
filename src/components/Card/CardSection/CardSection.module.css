@@ -16,3 +16,8 @@
      @apply text-center;
      padding: 1rem;
 }
+
+.cardSection_image {
+    @apply h-40 w-full;
+    @apply rounded-lg;
+}

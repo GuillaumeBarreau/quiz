@@ -3,6 +3,7 @@ import CardSection from './CardSection.component'
 import { ICardSection } from './CardSection.d'
 
 const defaultProps: ICardSection = {
+    title: 'title content',
     image: 'image content',
     url: 'url-content',
 }

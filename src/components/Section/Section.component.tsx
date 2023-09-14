@@ -22,8 +22,9 @@ const Section: React.FC<ISection> = (props) => {
                 className={styles.section_swiper}
                 modules={swiperModules}
                 id="swiper-color"
-                slidesPerView={3.2}
-                spaceBetween={50}
+                slidesPerView={4.4}
+                spaceBetween={20}
+                slidesOffsetBefore={40}
                 style={{ padding: '12px' }}
             >
                 {dataConfig?.map?.((data) => {
