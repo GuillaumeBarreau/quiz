@@ -61,12 +61,14 @@
     --neutral-color-max: #000;
 
     /* Swiper */
-    --swiper-pagination-color: #f3f3f3;
-    --swiper-pagination-bullet-inactive-color: #999999;
+    --swiper-pagination-color: #dca839;
+    --swiper-pagination-bullet-inactive-color: #ffffff;
     --swiper-pagination-bullet-inactive-opacity: 1;
     --swiper-pagination-bullet-size: 16px;
-    --swiper-pagination-bullet-horizontal-gap: 6px;
-
+    --swiper-pagination-bullet-horizontal-gap: 4px;
+    --swiper-pagination-bullets : 40px;
+    --swiper-pagination-bottom: -6px;
+    
 }
 
 @media (prefers-color-scheme: dark) {
@@ -116,6 +118,7 @@ body {
     max-width: 100vw;
     overflow-x: hidden;
 }
+
 
 body {
     background: #071728;

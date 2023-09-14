@@ -1,15 +1,12 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, A11y, Autoplay } from 'swiper/modules'
+import { Pagination, A11y, Autoplay, EffectFade } from 'swiper/modules'
 import Image from 'next/image'
 import styles from './SwiperHeader.module.css'
 import { ISwiperHeader } from './SwiperHeader.d'
-import 'swiper/swiper-bundle.css'
-import 'swiper/css/autoplay'
-import 'swiper/css/a11y'
 
-const swiperModules = [Pagination, A11y, Autoplay]
+const swiperModules = [Pagination, A11y, Autoplay, EffectFade]
 
 const SwiperHeader: React.FC<ISwiperHeader> = (props) => {
     const { images } = props
@@ -18,10 +15,10 @@ const SwiperHeader: React.FC<ISwiperHeader> = (props) => {
             <Swiper
                 className={styles.swiper_content}
                 loop={true}
+                effect={'fade'}
                 autoplay={{
                     delay: 4000,
                 }}
-                pagination={true}
                 modules={swiperModules}
                 id="swiper-color"
                 slidesPerView={1}

@@ -1,6 +1,10 @@
 import { ProviderStores } from '@/stores/provider'
 import { Inter } from 'next/font/google'
 import { NextAuthProvider } from './_nextAuth/providers'
+import 'swiper/swiper-bundle.css'
+import 'swiper/css/autoplay'
+import 'swiper/css/a11y'
+import 'swiper/css/effect-fade'
 import './globals.css'
 
 import type { Metadata } from 'next'
