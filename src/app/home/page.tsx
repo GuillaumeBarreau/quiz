@@ -1,5 +1,5 @@
 import Categories from '@/components/Categories/Categories.component'
-import { SwiperHeader } from '@/components/Swiper'
+import { SwiperHeader } from '@/components/_Swiper'
 import styles from './page.module.css'
 import Section from '@/components/Section/Section.component'
 import trainingConfig from '@/training.config.json'

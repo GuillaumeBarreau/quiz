@@ -1,4 +1,4 @@
-import { Button } from '@/components/Inputs'
+import { Button } from '@/components/_Inputs'
 import styles from './Banner.module.css'
 import { signIn, signOut } from 'next-auth/react'
 

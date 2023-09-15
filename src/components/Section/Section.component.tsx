@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { ISection } from './Section.d'
 import { A11y } from 'swiper/modules'
 import styles from './Section.module.css'
-import CardSection from '../Card/CardSection'
+import CardSection from '../_Card/CardSection'
 
 const swiperModules = [A11y]
 

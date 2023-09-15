@@ -1,3 +1,25 @@
 {
-    "extends": ["next", "prettier"]
+    "extends": ["next", "prettier"],
+    "plugins": [
+    // [existing plugins]
+    "eslint-plugin-import"
+  ],
+  "rules": {
+    // [existing rules]
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["../**/components/**/*"],
+            "message": "Do not import from a higher level component's internal components, move that component further up the directory tree instead."
+          },
+          {
+            "group": ["**/components/**/components/**/*"],
+            "message": "Do not import internal components used by a sub-component, move that component further up the directory tree instead."
+          }
+        ]
+      }
+    ]
+  }
 }
