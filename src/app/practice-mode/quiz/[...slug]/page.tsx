@@ -35,18 +35,14 @@ const Page: React.FC<IQuiz> = async ({ params }) => {
     const DOMAIN =
         vercel_public_domain ??
         `${process.env.NEXT_PUBLIC_DB_HOST}:${process.env.NEXT_PUBLIC_DB_PORT}`
-    console.log(
-        `http://${DOMAIN}/api/practice-mode/quiz/${category}/${quizName}`
-    )
-    
+
     const { questions } = await getData(quizName, category)
 
     return (
         <Quiz
             questionsArray={questions?.data}
             questionsNumber={questions?.data?.length}
-            // quizName={quizName?.split('-').join(' ') ?? 'Quiz'}
-            quizName={`http://${DOMAIN}/api/practice-mode/quiz/${category}/${quizName}`}
+            quizName={quizName?.split('-').join(' ') ?? 'Quiz'}
         />
     )
 }
