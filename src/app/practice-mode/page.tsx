@@ -1,4 +1,4 @@
-import { CardFormation } from '@/components/Card'
+import { CardFormation } from '@/components/_Card'
 import styles from './page.module.css'
 import trainingConfig from '@/training.config.json'
 import { ITrainingConfig, IConfigGlobal } from './practice-mode.d'

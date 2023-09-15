@@ -59,12 +59,14 @@ const generateConfigData = () => {
 
 const generateAPIRoutes = (file) => {
     const apiRootFolder = '../src/app/api'
-    const apiFolder = path.join(apiRootFolder, 'practice-mode')
-    const apiRouteFolderCategory = path.join(apiFolder, file.category)
+    const apPracticeModeFolder = path.join(apiRootFolder, '/practice-mode')
+    const apiQuizFolder = path.join(apPracticeModeFolder, '/quiz')
+    const apiRouteFolderCategory = path.join(apiQuizFolder, file.category)
     const apiRouteFolder = path.join(apiRouteFolderCategory, file.url)
 
-    createFolderIfNotExists(apiFolder)
-    createFolderIfNotExists(path.join(apiFolder, 'quiz'))
+    createFolderIfNotExists(apiRootFolder)
+    createFolderIfNotExists(apPracticeModeFolder)
+    createFolderIfNotExists(apiQuizFolder)
     createFolderIfNotExists(apiRouteFolderCategory)
     createFolderIfNotExists(apiRouteFolder)
 
