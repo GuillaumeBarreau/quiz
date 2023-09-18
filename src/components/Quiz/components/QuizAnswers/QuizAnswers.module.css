@@ -14,15 +14,15 @@
     @apply px-16 py-8;
     @apply flex flex-col items-center justify-center;
     @apply w-full;
-    background-color: #d3d0d0;
-    border-right: 0.5px solid #e0e0e0;
+    background-color: #ebebeb;
+    border-right: 0.5px solid #ebebeb;
 }
 
 .quiz_question_content_right {
     @apply p-8;
     @apply flex flex-auto flex-col items-center justify-between;
     @apply w-full;
-    border-left: 0.5px solid #e0e0e0;
+    border-left: 0.5px solid #ebebeb;
 }
 
 .quiz_question_index {

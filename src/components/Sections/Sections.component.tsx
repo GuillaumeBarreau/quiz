@@ -18,7 +18,7 @@ const Sections: React.FC<ISections> = (props) => {
 
     return (
         <div className={styles.sections_container} id={title}>
-            <Link href={`/category/${title}`}>
+            <Link href={`practice-mode/category/${title}`}>
                 <div className={styles.sections_text_content}>
                     <h2 className={styles.sections_title}>{title} - all</h2>
                 </div>
@@ -28,7 +28,6 @@ const Sections: React.FC<ISections> = (props) => {
                 modules={swiperModules}
                 id="swiper-color"
                 slidesPerView={4.4}
-                // spaceBetween={20}
                 slidesOffsetBefore={40}
                 style={{ padding: '12px' }}
             >

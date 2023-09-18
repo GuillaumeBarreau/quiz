@@ -14,7 +14,7 @@ const QuizResults: React.FC<IQuizResults> = (props) => {
     }
 
     const handleButtonClickHome = () => {
-        router.push('/home')
+        router.push('/practice-mode')
     }
 
     const handleButtonClickRetry = () => {

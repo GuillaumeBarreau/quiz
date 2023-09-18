@@ -1,7 +1,4 @@
-.page_container {
-    @apply flex justify-center flex-wrap;
-    @apply min-h-screen;
-    @apply p-8;
-    flex-flow: wrap;
+.home_container {
+    @apply relative;
+    min-height: calc(100vh - 70px);
 }
-
