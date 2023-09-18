@@ -11,15 +11,77 @@
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, follow these simple steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+### 1. Installation
+
+First, clone the repository to your local machine and navigate to the project directory:
+
+```shell
+git clone git@github.com:GuillaumeBarreau/quiz.git
+cd quiz
 ```
+
+Next, install the project dependencies using npm:
+
+```shell
+npm install
+```
+
+### 2. Generating Data and API Routes
+
+Before you can run the application, you need to generate JSON data files for the quizzes and set up the API routes. Use the following command:
+
+```shell
+npm run generateData
+```
+
+This command will create all the necessary JSON data files and configure the API routes required for your application. It ensures that your project has the latest quiz data.
+
+### 3. Starting the Development Server
+
+Now you're ready to start the development server. Use the following command to launch your project locally:
+
+```shell
+npm run dev
+```
+
+## Project Commands
+
+### `npm run dev`
+Starts the development server using Next.js.
+
+### `npm run build`
+Generates data (using `generateData`), then builds the project using Next.js.
+
+### `npm start`
+Starts the production server using Next.js.
+
+### `npm run lint`
+Lints the project using Next.js's built-in linting tools.
+
+### `npm run generateData`
+
+This command serves a crucial role in your project by generating JSON data files for various quizzes and creating the necessary API routes for Next.js. It accomplishes the following tasks:
+
+1. **Data Generation**: It runs the `createdJsonData.mjs` script located in the `./scripts` directory. This script is responsible for generating JSON data files that correspond to the data for different quizzes in your project.
+
+2. **API Route Creation**: Alongside generating data, this command sets up the required API routes in your Next.js project. These routes are designed to serve the JSON data to your application when requested.
+
+   - **API Routes Location**: The API routes are automatically created in your Next.js project based on the data generated. These routes will be available at paths like `/api/practice-mode/quiz/{...slug}` where `{...slug}` is a parameter representing the specific quiz.
+
+By running `npm run generateData`, you ensure that your project has up-to-date JSON data for quizzes and that the necessary API endpoints are in place to fetch this data. This is essential for the proper functioning of your application.
+
+**Note**: Make sure to configure the `createdJsonData.mjs` script in a way that it generates the data and API routes according to your project's requirements.
+
+### `npm test`
+Runs Jest in watch mode with code coverage analysis.
+
+### `npm run test:ci`
+Runs Jest in continuous integration mode with code coverage analysis.
+
+### `npm run e2e`
+Opens Cypress for end-to-end testing.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
