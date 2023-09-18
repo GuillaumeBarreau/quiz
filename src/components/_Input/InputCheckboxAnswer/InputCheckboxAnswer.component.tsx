@@ -15,6 +15,7 @@ const InputCheckboxAnswer: React.FC<IInputCheckboxAnswer> = (props) => {
 
     return (
         <div
+            data-testid="InputCheckboxAnswer_component"
             tabIndex={0}
             className={`${styles.inputCheckboxAnswer_container} ${
                 isSelectAnswers

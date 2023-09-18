@@ -15,7 +15,7 @@ export default function Home() {
 
     return (
         <main className={styles.page_container}>
-            {session && redirect('/home')}
+            {session && redirect('/practice-mode')}
             <Banner />
         </main>
     )

@@ -1,4 +1,4 @@
 .category_container {
     @apply flex justify-center flex-wrap;
-    padding: 2rem;
+    @apply p-8;
 }

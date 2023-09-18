@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=coverage)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=bugs)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=GuillaumeBarreau_quiz&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=GuillaumeBarreau_quiz)
 
 ## Getting Started
 

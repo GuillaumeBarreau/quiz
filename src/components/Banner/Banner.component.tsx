@@ -6,7 +6,9 @@ const Banner: React.FC = () => {
     return (
         <section className={styles.banner_container}>
             <div className={styles.banner_content}>
-                <Button onClick={() => signIn()}>SignIn</Button>
+                <Button data-testid="Banner_button" onClick={() => signIn()}>
+                    SignIn
+                </Button>
             </div>
         </section>
     )

@@ -12,11 +12,10 @@
 }
 
 .cardSection_title {
-     @apply text-xl font-bold capitalize;
+     @apply text-xl font-bold capitalize text-center;
      @apply flex justify-center items-center;
-     @apply text-center;
+     @apply p-4;
      transform: scaleY(1.1);
-     padding: 1rem;
 }
 
 .cardSection_image {

@@ -1,35 +1,36 @@
-import { CardFormation } from '@/components/_Card'
+import Categories from '@/components/Categories/Categories.component'
+import { SwiperHeader } from '@/components/_Swiper'
 import styles from './page.module.css'
+import Sections from '@/components/Sections/Sections.component'
 import trainingConfig from '@/training.config.json'
-import { ITrainingConfig, IConfigGlobal } from './practice-mode.d'
+import { ITrainingConfig } from '@/types'
 
-const configGlobal: IConfigGlobal[] = []
+import 'swiper/swiper-bundle.css'
+import 'swiper/css/autoplay'
+import 'swiper/css/a11y'
+import 'swiper/css/effect-fade'
 
-const typedTrainingConfig: ITrainingConfig = trainingConfig
-
-typedTrainingConfig?.categoriesList.forEach((category) => {
-    typedTrainingConfig.dataConfig[category]?.forEach(
-        (training: IConfigGlobal) => {
-            configGlobal.push(training)
-        }
-    )
-})
+const typedTrainingConfig = trainingConfig as unknown as ITrainingConfig
 
 const Page: React.FC = () => {
     return (
-        <div className={styles.page_container}>
-            {configGlobal.map?.((training) => {
-                return (
-                    <CardFormation
-                        key={training?.url}
-                        description={training?.description}
-                        longTitle={training?.longTitle}
-                        shortTitle={training?.shortTitle}
-                        url={training?.url}
-                    />
-                )
-            })}
-        </div>
+        <>
+            <SwiperHeader images={trainingConfig?.categoriesList} />
+            <div className={styles.home_container}>
+                <Categories categories={trainingConfig.categoriesList} />
+                {trainingConfig?.categoriesList?.map?.((category) => {
+                    return (
+                        <Sections
+                            key={category}
+                            title={category}
+                            dataConfig={
+                                typedTrainingConfig.dataConfig?.[category]
+                            }
+                        />
+                    )
+                })}
+            </div>
+        </>
     )
 }
 
