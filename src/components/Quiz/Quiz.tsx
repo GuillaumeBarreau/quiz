@@ -100,6 +100,7 @@ const Quiz: React.FC<IQuiz> = ({
             />
             {questions && (
                 <QuizAnswers
+                    currentQuestion={stateQuestionNumber}
                     handleClickInputSelectAnswers={
                         handleClickInputSelectAnswers
                     }

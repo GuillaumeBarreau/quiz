@@ -1,6 +1,6 @@
-import { Button } from '@/components/_Inputs'
-import styles from './Banner.module.css'
 import { signIn, signOut } from 'next-auth/react'
+import { Button } from '@/components/_Input'
+import styles from './Banner.module.css'
 
 const Banner: React.FC = () => {
     return (

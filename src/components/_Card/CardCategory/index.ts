@@ -1,3 +1,3 @@
-import CardSection from './CardCategory.component';
+import CardSections from './CardCategory.component';
 
-export default CardSection;
+export default CardSections;

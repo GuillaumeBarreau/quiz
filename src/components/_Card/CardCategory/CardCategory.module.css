@@ -15,6 +15,6 @@
 }
 
 .cardCategory_title {
-     @apply text-2xl font-bold capitalize text-black;
+     @apply text-2xl font-bold capitalize text-black text-center;
      @apply absolute top-0 bottom-0 w-full flex justify-center items-center;
 }

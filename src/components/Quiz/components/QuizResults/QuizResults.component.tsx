@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation'
-import { Button, ButtonGroup } from '@/components/_Inputs'
+import { Button, ButtonGroup } from '@/components/_Input'
 import { IQuizResults } from './QuizResults.d'
 import styles from './QuizResults.module.css'
 import Board from '../Board'

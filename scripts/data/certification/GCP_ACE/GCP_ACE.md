@@ -132,7 +132,7 @@
 
 - [x] Using the GCP Console, filter the Activity log to view the information.
 - [ ] Using the GCP Console, filter the Stackdriver log to view the information.
-- [ ] View the bucket in the Storage section of the GCP Console.
+- [ ] View the bucket in the Storage Sections of the GCP Console.
 - [ ] Create a trace in Stackdriver to view the information.
 
 ### You need to run an important query in BigQuery but expect it to return a lot of records. You want to find out how much it will cost to run the query. You are using on-demand pricing. What should you do?
@@ -256,7 +256,7 @@
 
 ### You have a Linux VM that must connect to Cloud SQL. You created a service account with the appropriate access rights. You want to make sure that the VM uses this service account instead of the default Compute Engine service account. What should you do?
 
-- [x] When creating the VM via the web console, specify the service account under the 'Identity and API Access' section.
+- [x] When creating the VM via the web console, specify the service account under the 'Identity and API Access' Sections.
 - [ ] Download a JSON Private Key for the service account. On the Project Metadata, add that JSON as the value for the key compute-engine-service-account.
 - [ ] Download a JSON Private Key for the service account. On the Custom Metadata of the VM, add that JSON as the value for the key compute-engine-service-account.
 - [ ] Download a JSON Private Key for the service account. After creating the VM, ssh into the VM and save the JSON under ~/.gcloud/compute-engine-service-account.json.
@@ -410,10 +410,10 @@
 
 ### You want to verify the IAM users and roles assigned within a GCP project named my-project. What should you do?
 
-- [ ] Run gcloud iam roles list. Review the output section.
-- [ ] Run gcloud iam service-accounts list. Review the output section.
-- [x] Navigate to the project and then to the IAM section in the GCP Console. Review the members and roles.
-- [ ] Navigate to the project and then to the Roles section in the GCP Console. Review the roles and status.
+- [ ] Run gcloud iam roles list. Review the output Sections.
+- [ ] Run gcloud iam service-accounts list. Review the output Sections.
+- [x] Navigate to the project and then to the IAM Sections in the GCP Console. Review the members and roles.
+- [ ] Navigate to the project and then to the Roles Sections in the GCP Console. Review the roles and status.
 
 ### You need to select and configure compute resources for a set of batch processing jobs. These jobs take around 2 hours to complete and are run nightly. You want to minimize service costs. What should you do?
 
@@ -960,7 +960,7 @@
 - [x] Using the Cloud SDK, create a new project, enable the Compute Engine API in that project, and then create the instance specifying your new project.
 - [ ] Enable the Compute Engine API in the Cloud Console, use the Cloud SDK to create the instance, and then use the --project flag to specify a new project.
 - [ ] Using the Cloud SDK, create the new instance, and use the --project flag to specify the new project. Answer yes when prompted by Cloud SDK to enable the Compute Engine API.
-- [ ] Enable the Compute Engine API in the Cloud Console. Go to the Compute Engine section of the Console to create a new instance, and look for the Create In A New Project option in the creation form.
+- [ ] Enable the Compute Engine API in the Cloud Console. Go to the Compute Engine Sections of the Console to create a new instance, and look for the Create In A New Project option in the creation form.
 
 ### Your company runs one batch process in an on-premises server that takes around 30 hours to complete. The task runs monthly, can be performed offline, and must be restarted if interrupted. You want to migrate this workload to the cloud while minimizing cost. What should you do?
 
@@ -1021,7 +1021,7 @@
 ### You have a Compute Engine instance hosting an application used between 9 AM and 6 PM on weekdays. You want to back up this instance daily for disaster recovery purposes. You want to keep the backups for 30 days. You want the Google-recommended solution with the least management overhead and the least number of services. What should you do?
 
 - [ ] 1. Update your instances' metadata to add the following value: snapshot"schedule: 0 1 \* \* \* 2. Update your instances' metadata to add the following value: snapshot"retention: 30.
-- [x] 1. In the Cloud Console, go to the Compute Engine Disks page and select your instance's disk. 2. In the Snapshot Schedule section, select Create Schedule and configure the following parameters: Schedule frequency: Daily. Start time: 1:00 AM - 2:00 AM. Autodelete snapshots after: 30 days.
+- [x] 1. In the Cloud Console, go to the Compute Engine Disks page and select your instance's disk. 2. In the Snapshot Schedule Sections, select Create Schedule and configure the following parameters: Schedule frequency: Daily. Start time: 1:00 AM - 2:00 AM. Autodelete snapshots after: 30 days.
 - [ ] 1. Create a Cloud Function that creates a snapshot of your instance's disk. 2. Create a Cloud Function that deletes snapshots that are older than 30 days. 3. Use Cloud Scheduler to trigger both Cloud Functions daily at 1:00 AM.
 - [ ] 1. Create a bash script in the instance that copies the content of the disk to Cloud Storage. 2. Create a bash script in the instance that deletes data older than 30 days in the backup Cloud Storage bucket. 3. Configure the instance's crontab to execute these scripts daily at 1:00 AM.
 

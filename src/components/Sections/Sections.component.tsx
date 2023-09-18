@@ -1,14 +1,15 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { ISection } from './Section.d'
+import Link from 'next/link'
+import { ISections } from './Sections'
 import { A11y } from 'swiper/modules'
-import styles from './Section.module.css'
-import CardSection from '../_Card/CardSection'
+import styles from './Sections.module.css'
+import { CardSectionSwiper } from '../_Card/'
 
 const swiperModules = [A11y]
 
-const Section: React.FC<ISection> = (props) => {
+const Sections: React.FC<ISections> = (props) => {
     const { title, dataConfig } = props
 
     if (!dataConfig?.length) {
@@ -16,14 +17,18 @@ const Section: React.FC<ISection> = (props) => {
     }
 
     return (
-        <div className={styles.section_container} id={title}>
-            <h2 className={styles.section_title}>{title}</h2>
+        <div className={styles.sections_container} id={title}>
+            <Link href={`/category/${title}`}>
+                <div className={styles.sections_text_content}>
+                    <h2 className={styles.sections_title}>{title} - all</h2>
+                </div>
+            </Link>
             <Swiper
-                className={styles.section_swiper}
+                className={styles.sections_swiper}
                 modules={swiperModules}
                 id="swiper-color"
                 slidesPerView={4.4}
-                spaceBetween={20}
+                // spaceBetween={20}
                 slidesOffsetBefore={40}
                 style={{ padding: '12px' }}
             >
@@ -33,7 +38,7 @@ const Section: React.FC<ISection> = (props) => {
                             key={data.shortTitle}
                             style={{ listStyle: 'none' }}
                         >
-                            <CardSection
+                            <CardSectionSwiper
                                 key={data.shortTitle}
                                 image={data.shortTitle}
                                 title={data.longTitle}
@@ -47,4 +52,4 @@ const Section: React.FC<ISection> = (props) => {
     )
 }
 
-export default Section
+export default Sections
