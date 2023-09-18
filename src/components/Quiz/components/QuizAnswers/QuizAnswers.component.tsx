@@ -1,4 +1,4 @@
-import { Button } from '@/components/_Inputs'
+import { Button } from '@/components/_Input'
 import Status from '@/components/Status/Status.component'
 import { IQuizAnswers } from './QuizAnswers.d'
 import styles from './QuizAnswers.module.css'
@@ -14,6 +14,7 @@ const QuizAnswers: React.FC<IQuizAnswers> = (props) => {
         answers,
         stateQuestionNumber,
         stateCurrentQuestionCorrect,
+        currentQuestion,
     } = props
 
     const question = questionsArray?.[stateQuestionNumber]?.question
@@ -27,25 +28,32 @@ const QuizAnswers: React.FC<IQuizAnswers> = (props) => {
 
     return (
         <div className={styles.quiz_question_wrapper}>
-            <Question question={question} />
-            <Answer
-                handleClickSelectAnswers={handleClickInputSelectAnswers}
-                optionAnswers={optionAnswers}
-                selectAnswers={answers}
-                correctAnswer={correctAnswer}
-                statusShown={stateStatusShown}
-                indexAnswer={indexAnswer}
-            />
-            {!stateStatusShown ? (
-                <Button
-                    onClick={handleClickButtonSubmit}
-                    disabled={answers.length === 0}
-                >
-                    {answers.length ? 'Submit' : 'Select an answer'}
-                </Button>
-            ) : (
-                <Status correct={stateCurrentQuestionCorrect} />
-            )}
+            <div className={styles.quiz_question_content_left}>
+                <Question question={question} />
+            </div>
+            <div className={styles.quiz_question_content_right}>
+                <div className={styles.quiz_question_index}>
+                    Question: {currentQuestion + 1} / {questionsArray.length}
+                </div>
+                <Answer
+                    handleClickSelectAnswers={handleClickInputSelectAnswers}
+                    optionAnswers={optionAnswers}
+                    selectAnswers={answers}
+                    correctAnswer={correctAnswer}
+                    statusShown={stateStatusShown}
+                    indexAnswer={indexAnswer}
+                />
+                {!stateStatusShown ? (
+                    <Button
+                        onClick={handleClickButtonSubmit}
+                        disabled={answers.length === 0}
+                    >
+                        {answers.length ? 'Submit' : 'Select an answer'}
+                    </Button>
+                ) : (
+                    <Status correct={stateCurrentQuestionCorrect} />
+                )}
+            </div>
         </div>
     )
 }

@@ -16,6 +16,7 @@ const SwiperHeader: React.FC<ISwiperHeader> = (props) => {
                 className={styles.swiper_content}
                 loop={true}
                 effect={'fade'}
+                observer={true}
                 autoplay={{
                     delay: 4000,
                 }}

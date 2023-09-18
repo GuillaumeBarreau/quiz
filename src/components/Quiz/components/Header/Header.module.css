@@ -9,7 +9,7 @@
 }
 
 .header_container > :nth-child(2) {
-    justify-content: center;
+    @apply justify-center
 }
 
 .header_container > :last-child {

@@ -1,9 +1,14 @@
 import Categories from '@/components/Categories/Categories.component'
 import { SwiperHeader } from '@/components/_Swiper'
 import styles from './page.module.css'
-import Section from '@/components/Section/Section.component'
+import Sections from '@/components/Sections/Sections.component'
 import trainingConfig from '@/training.config.json'
 import { ITrainingConfig } from '@/types'
+
+import 'swiper/swiper-bundle.css'
+import 'swiper/css/autoplay'
+import 'swiper/css/a11y'
+import 'swiper/css/effect-fade'
 
 const typedTrainingConfig = trainingConfig as unknown as ITrainingConfig
 
@@ -15,7 +20,7 @@ const Page: React.FC = () => {
                 <Categories categories={trainingConfig.categoriesList} />
                 {trainingConfig?.categoriesList?.map?.((category) => {
                     return (
-                        <Section
+                        <Sections
                             key={category}
                             title={category}
                             dataConfig={

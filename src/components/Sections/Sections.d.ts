@@ -1,7 +1,7 @@
 import { IData } from '@/types'
 import { type } from 'os'
 
-export interface ISection { 
+export interface ISections { 
     title: string, 
     dataConfig: IData[]
 };

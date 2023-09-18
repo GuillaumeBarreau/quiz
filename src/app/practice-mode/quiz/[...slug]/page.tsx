@@ -30,11 +30,6 @@ async function getData(quizName: string, category: string) {
 const Page: React.FC<IQuiz> = async ({ params }) => {
     const category = params?.slug[0]
     const quizName = params?.slug[1]
-     const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
-
-    const DOMAIN =
-        vercel_public_domain ??
-        `${process.env.NEXT_PUBLIC_DB_HOST}:${process.env.NEXT_PUBLIC_DB_PORT}`
 
     const { questions } = await getData(quizName, category)
 

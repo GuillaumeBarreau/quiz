@@ -1,0 +1,27 @@
+.sections_container {
+    margin-top: 2rem;
+}
+
+.sections_title {
+    @apply text-xl font-semibold capitalize text-white;
+    padding-left: 4rem;
+}
+
+.sections_text_content {
+    @apply flex items-end;
+}
+
+.sections_text {
+    @apply text-sm font-semibold capitalize text-white;
+    padding-left: 2rem;
+    justify-content: end;
+    padding-bottom: 0.1rem;
+}
+
+.sections_swiper {
+    padding-bottom: 40px;
+}
+
+.sections_content {
+    @apply flex;
+}

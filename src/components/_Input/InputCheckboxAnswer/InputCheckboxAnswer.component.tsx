@@ -1,6 +1,6 @@
 import { IInputCheckboxAnswer } from './InputCheckboxAnswer.d'
 import styles from './InputCheckboxAnswer.module.css'
-import { Checkbox } from '@/components/_Inputs'
+import { Checkbox } from '@/components/_Input'
 
 const InputCheckboxAnswer: React.FC<IInputCheckboxAnswer> = (props) => {
     const {

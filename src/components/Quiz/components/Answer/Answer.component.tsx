@@ -1,4 +1,4 @@
-import InputCheckboxAnswer from '@/components/_Inputs/InputCheckboxAnswer'
+import InputCheckboxAnswer from '@/components/_Input/InputCheckboxAnswer'
 import { IAnswer } from './Answer'
 import styles from './Answer.module.css'
 import { getResultInputSelected } from './Answer.utils'

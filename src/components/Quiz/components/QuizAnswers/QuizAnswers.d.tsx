@@ -1,6 +1,7 @@
 import { IQuestion, TAnswers } from '@/types'
 
 export interface IQuizAnswers {
+    currentQuestion: number
     selectAnswers: any
     stateQuestionNumber: number
     stateCurrentQuestionCorrect: boolean

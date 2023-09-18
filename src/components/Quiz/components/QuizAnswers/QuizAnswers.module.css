@@ -1,8 +1,6 @@
 .quiz_question_wrapper {
-    @apply flex flex-col flex-1 justify-between items-center relative;
-    @apply p-8 mb-5;
-    @apply rounded-lg;
-    @apply w-full;
+    @apply flex flex-auto;
+    @apply w-full h-full;
     background-color: #f5f5f5;
 }
 
@@ -12,8 +10,21 @@
     @apply flex flex-auto justify-center items-center;
 }
 
-@screen md {
-    .quiz_question_wrapper {
-        @apply w-[664px];
-    }
+.quiz_question_content_left {
+    @apply px-16 py-8;
+    @apply flex flex-col items-center justify-center;
+    @apply w-full;
+    background-color: #d3d0d0;
+    border-right: 0.5px solid #e0e0e0;
+}
+
+.quiz_question_content_right {
+    @apply p-8;
+    @apply flex flex-auto flex-col items-center justify-between;
+    @apply w-full;
+    border-left: 0.5px solid #e0e0e0;
+}
+
+.quiz_question_index {
+    @apply text-black font-semibold;
 }

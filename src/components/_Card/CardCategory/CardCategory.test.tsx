@@ -10,7 +10,7 @@ const setup = (props: ICardCategory) => {
     return render(<CardCategory {...props} />)
 }
 
-describe('CardSection component', () => {
+describe('CardSections component', () => {
     it('should renders without crashing', () => {
         const { container } = setup(defaultProps)
         expect(container).toBeInTheDocument()
