@@ -14,7 +14,7 @@ const Answer: React.FC<IAnswer> = (props) => {
     } = props
 
     return (
-        <div className={styles.answer_wrapper}>
+        <div className={styles.answer_wrapper} data-testid="Answer_component">
             {optionAnswers?.map((answer, index) => {
                 const resultInputSelected = getResultInputSelected({
                     statusShown,
