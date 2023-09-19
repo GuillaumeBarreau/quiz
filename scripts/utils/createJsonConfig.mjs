@@ -1,5 +1,5 @@
 import fs from 'fs'
-import filesConfig from './createJsonStructure.mjs'
+import createJsonStructure from './createJsonStructure.mjs'
 
 const createJsonConfig = () => {
     const dir = `../src/training.config.json`
@@ -10,7 +10,7 @@ const createJsonConfig = () => {
         dataConfig: {},
     }
 
-    filesConfig.forEach((file) => {
+    createJsonStructure('./data').forEach((file) => {
         configApp.count = configApp.count + 1
 
         if (!configApp.dataConfig[file.category]) {

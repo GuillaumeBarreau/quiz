@@ -1,7 +1,6 @@
 import fs from 'fs'
 
-const createJsonStructure = () => {
-    const configDir = './data'
+const createJsonStructure = (configDir) => {
     try {
         const folders = fs.readdirSync(configDir)
 
@@ -37,4 +36,4 @@ const createJsonStructure = () => {
     }
 }
 
-export default createJsonStructure()
+export default createJsonStructure

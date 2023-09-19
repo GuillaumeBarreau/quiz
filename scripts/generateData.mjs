@@ -5,7 +5,7 @@ import {
     createJsonStructure,
 } from './utils/index.mjs'
 
-createJsonStructure.map((file) => {
+createJsonStructure('./data').map((file) => {
     createJsonFiles(file.path, file.shortTitle, file.category)
     createJsonConfig()
     createApiRoutes(file)
