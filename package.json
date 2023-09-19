@@ -7,7 +7,7 @@
         "build": "npm run generateData & next build",
         "start": "next start",
         "lint": "next lint",
-        "generateData": "cd ./scripts && node createdJsonData.mjs",
+        "generateData": "cd ./scripts && node generateData.mjs",
         "test": "jest --watch --coverage",
         "test:ci": "jest --ci --coverage",
         "e2e": "cypress open"
