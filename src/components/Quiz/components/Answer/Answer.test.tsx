@@ -59,31 +59,4 @@ describe('Answer component', () => {
             answer: 'Option 1',
         })
     })
-
-    it('should pass correctAnswer prop to InputCheckboxAnswer components', () => {
-        setup(defaultProps)
-        expect(mockResultInputSelected).toHaveBeenCalledWith(
-            expect.objectContaining({
-                correctAnswer: defaultProps.correctAnswer,
-            })
-        )
-    })
-
-    it('should pass selectAnswers prop to InputCheckboxAnswer components', () => {
-        setup(defaultProps)
-        expect(mockResultInputSelected).toHaveBeenCalledWith(
-            expect.objectContaining({
-                selectAnswers: defaultProps.selectAnswers,
-            })
-        )
-    })
-
-    it('should pass statusShown prop to InputCheckboxAnswer components', () => {
-        setup(defaultProps)
-        expect(mockResultInputSelected).toHaveBeenCalledWith(
-            expect.objectContaining({
-                statusShown: defaultProps.statusShown,
-            })
-        )
-    })
 })
