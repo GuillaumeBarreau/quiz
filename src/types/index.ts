@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type TAnswers =  string[];
 
 export type TSelectAnswers =  string[];
@@ -45,3 +47,8 @@ export interface ITrainingConfig {
   categoriesList: string[];
   dataConfig: IDataConfig;
 }
+
+export type PropsWithOptionalChildren<P = unknown> = P & { children?: ReactNode };
+
+export type PropsWithChildren<P = unknown> = P & { children: ReactNode };
+

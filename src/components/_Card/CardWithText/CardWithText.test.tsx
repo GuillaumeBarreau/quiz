@@ -1,18 +1,18 @@
 import { render } from '@testing-library/react'
-import CardSectionSwiper from './CardSectionSwiper.component'
-import { ICardSectionSwiper } from './CardSectionSwiper.d'
+import CardWithText from './CardWithText.component'
+import { ICardWithText } from './CardWithText.d'
 
-const defaultProps: ICardSectionSwiper = {
+const defaultProps: ICardWithText = {
     title: 'title content',
     image: 'image content',
     url: 'url-content',
 }
 
-const setup = (props: ICardSectionSwiper) => {
-    return render(<CardSectionSwiper {...props} />)
+const setup = (props: ICardWithText) => {
+    return render(<CardWithText {...props} />)
 }
 
-describe('CardSectionSwiper component', () => {
+describe('CardWithText component', () => {
     it('should renders without crashing', () => {
         const { container } = setup(defaultProps)
         expect(container).toBeInTheDocument()
@@ -22,7 +22,7 @@ describe('CardSectionSwiper component', () => {
         const { getByTestId } = setup({
             ...defaultProps,
         })
-        const buttonElement = getByTestId('CardSectionSwiper_component')
+        const buttonElement = getByTestId('CardWithText_component')
         expect(buttonElement.getAttribute('href')).toBe(
             `/practice-mode/quiz/${defaultProps.url}`
         )

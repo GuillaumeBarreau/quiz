@@ -1,7 +1,7 @@
 .quiz_question_wrapper {
-    @apply flex flex-auto;
-    @apply w-full h-full;
+    @apply flex w-full;
     background-color: #f5f5f5;
+    min-height: calc(100vh - 76px);
 }
 
 .quiz_question__loading {
@@ -11,17 +11,17 @@
 }
 
 .quiz_question_content_left {
-    @apply px-16 py-8;
+    flex: 1;
     @apply flex flex-col items-center justify-center;
-    @apply w-full;
+    @apply p-8;
     background-color: #ebebeb;
     border-right: 0.5px solid #ebebeb;
 }
 
 .quiz_question_content_right {
+    flex: 1;
+    @apply flex flex-col items-center justify-between;
     @apply p-8;
-    @apply flex flex-auto flex-col items-center justify-between;
-    @apply w-full;
     border-left: 0.5px solid #ebebeb;
 }
 

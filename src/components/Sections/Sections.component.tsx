@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ISections } from './Sections'
 import { A11y } from 'swiper/modules'
 import styles from './Sections.module.css'
-import { CardSectionSwiper } from '../_Card/'
+import { CardWithText } from '../_Card/'
 
 const swiperModules = [A11y]
 
@@ -23,30 +23,19 @@ const Sections: React.FC<ISections> = (props) => {
                     <h2 className={styles.sections_title}>{title} - all</h2>
                 </div>
             </Link>
-            <Swiper
-                className={styles.sections_swiper}
-                modules={swiperModules}
-                id="swiper-color"
-                slidesPerView={4.4}
-                slidesOffsetBefore={40}
-                style={{ padding: '12px' }}
-            >
+
+            <div className={styles.sections_content}>
                 {dataConfig?.map?.((data) => {
                     return (
-                        <SwiperSlide
+                        <CardWithText
                             key={data.shortTitle}
-                            style={{ listStyle: 'none' }}
-                        >
-                            <CardSectionSwiper
-                                key={data.shortTitle}
-                                image={data.shortTitle}
-                                title={data.longTitle}
-                                url={data.url}
-                            />
-                        </SwiperSlide>
+                            image={data.shortTitle}
+                            title={data.longTitle}
+                            url={data.url}
+                        />
                     )
                 })}
-            </Swiper>
+            </div>
         </div>
     )
 }

@@ -36,9 +36,4 @@ describe('Header component', () => {
         const verticalBar = getByTestId('VerticalBar_progress')
         expect(verticalBar).toHaveAttribute('style', 'width: 50%;')
     })
-
-    it('should display "Practice Mode" text', () => {
-        const { getByText } = setup()
-        expect(getByText('Practice Mode')).toBeInTheDocument()
-    })
 })

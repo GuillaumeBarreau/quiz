@@ -14,23 +14,18 @@ const typedTrainingConfig = trainingConfig as unknown as ITrainingConfig
 
 const Page: React.FC = () => {
     return (
-        <>
-            <SwiperHeader images={trainingConfig?.categoriesList} />
-            <div className={styles.home_container}>
-                <Categories categories={trainingConfig.categoriesList} />
-                {trainingConfig?.categoriesList?.map?.((category) => {
-                    return (
-                        <Sections
-                            key={category}
-                            title={category}
-                            dataConfig={
-                                typedTrainingConfig.dataConfig?.[category]
-                            }
-                        />
-                    )
-                })}
-            </div>
-        </>
+        <div className={styles.home_container}>
+            <Categories categories={trainingConfig.categoriesList} />
+            {trainingConfig?.categoriesList?.map?.((category) => {
+                return (
+                    <Sections
+                        key={category}
+                        title={category}
+                        dataConfig={typedTrainingConfig.dataConfig?.[category]}
+                    />
+                )
+            })}
+        </div>
     )
 }
 
