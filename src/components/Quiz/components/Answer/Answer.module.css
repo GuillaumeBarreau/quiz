@@ -1,3 +1,7 @@
+.answer_wrapper {
+    @apply w-full;
+}
+
 .answer_wrapper > :first-child {
     @apply rounded-t-lg;
 }

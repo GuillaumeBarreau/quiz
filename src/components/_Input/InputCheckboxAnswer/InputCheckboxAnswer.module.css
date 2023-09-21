@@ -29,6 +29,6 @@
 
 @screen lg {
     .inputCheckboxAnswer_container {
-        @apply w-[600px];
+        @apply w-full;
     }
 }

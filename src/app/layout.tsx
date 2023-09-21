@@ -1,9 +1,10 @@
-import { ProviderStores } from '@/stores/provider'
-import { Inter } from 'next/font/google'
-import { NextAuthProvider } from './_nextAuth/providers'
-import './globals.css'
-
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import { ProviderStores } from '@/stores/provider'
+import { NextAuthProvider } from './_nextAuth/providers'
+import MainContainer from '@/components/MainContainer'
+import './globals.css'
+import styles from './layout.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,13 +20,14 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
+            <body className={`${inter.className} ${styles.layout_container}`}>
                 <NextAuthProvider>
-                    <ProviderStores>{children}</ProviderStores>
+                    <ProviderStores>
+                        <MainContainer>{children}</MainContainer>
+                    </ProviderStores>
                 </NextAuthProvider>
                 <script> </script>
             </body>
         </html>
     )
 }
-

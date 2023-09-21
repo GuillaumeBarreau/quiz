@@ -1,5 +1,5 @@
 import Quiz from '@/components/Quiz/Quiz'
-import { IQuiz } from './quiz'
+import { IQuiz } from './types'
 
 async function getData(quizName: string, category: string) {
     const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL

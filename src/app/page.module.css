@@ -1,6 +1,0 @@
-.page_container {
-    @apply flex flex-col items-center justify-between;
-    @apply min-h-screen;
-    @apply p-24;
-}
-

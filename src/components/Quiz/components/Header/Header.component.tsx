@@ -8,7 +8,6 @@ const Header: React.FC<IHeader> = (props) => {
     return (
         <>
             <div className={styles.header_container}>
-                <p className={styles.header_mode}>Practice Mode</p>
                 <p className={styles.header_course}>{course}</p>
             </div>
             <VerticalBar

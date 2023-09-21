@@ -1,8 +1,8 @@
-import { ICardSectionSwiper } from './CardSectionSwiper.d'
+import { ICardWithText } from './CardWithText.d'
 import Image from 'next/image'
-import styles from './CardSectionSwiper.module.css'
+import styles from './CardWithText.module.css'
 
-const CardSectionSwiper: React.FC<ICardSectionSwiper> = (props) => {
+const CardWithText: React.FC<ICardWithText> = (props) => {
     const { image, url, title } = props
 
     if (!url) {
@@ -10,14 +10,14 @@ const CardSectionSwiper: React.FC<ICardSectionSwiper> = (props) => {
     }
 
     return (
-        <div className={styles.CardSectionSwiper_container}>
+        <div className={styles.cardWithText_container}>
             <a
-                className={styles.CardSectionSwiper_content}
+                className={styles.cardWithText_content}
                 href={`/practice-mode/quiz/${url}`}
-                data-testid="CardSectionSwiper_component"
+                data-testid="CardWithText_component"
             >
                 <Image
-                    className={styles.CardSectionSwiper_image}
+                    className={styles.cardWithText_image}
                     // src={`/images/${image}.png`}
                     src={`/images/nothing.png`}
                     alt={image}
@@ -28,10 +28,10 @@ const CardSectionSwiper: React.FC<ICardSectionSwiper> = (props) => {
                         borderRadius: '3px',
                     }}
                 />
-                <h2 className={styles.CardSectionSwiper_title}>{title}</h2>
+                <h2 className={styles.cardWithText_title}>{title}</h2>
             </a>
         </div>
     )
 }
 
-export default CardSectionSwiper
+export default CardWithText

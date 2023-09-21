@@ -12,6 +12,11 @@
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
 
+    --background-primary-color:  rgb(31 41 55 / 0.8);
+
+    --navBar-width:  240px;
+    --navBar-width--hidden:  80px;
+
     --primary-glow: conic-gradient(
         from 180deg at 50% 50%,
         #16abff33 0deg,
@@ -77,6 +82,8 @@
         --background-start-rgb: 0, 0, 0;
         --background-end-rgb: 0, 0, 0;
 
+        --background-primary-color:  #1f2937;
+
         --primary-glow: radial-gradient(
             rgba(1, 65, 255, 0.4),
             rgba(1, 65, 255, 0)
@@ -104,6 +111,33 @@
         --callout-border-rgb: 108, 108, 108;
         --card-rgb: 100, 100, 100;
         --card-border-rgb: 200, 200, 200;
+
+         /* primary brand color - skyblue  */ 
+        --primary-color:     skyblue;
+        --primary-color-lt:  lighten($primary-color, 5%);
+        --primary-color-ltr: lighten($primary-color, 10%);
+        --primary-color-dk:  darken($primary-color, 5%);
+        --primary-color-dkr: darken($primary-color, 10%);
+
+        /* secondary brand color - hotpink  */
+        --secondary-color:     hotpink;
+        --secondary-color-lt:  lighten($secondary-color, 5%);
+        --secondary-color-ltr: lighten($secondary-color, 10%);
+        --secondary-color-dk:  darken($secondary-color, 5%);
+        --secondary-color-dkr: darken($secondary-color, 10%);
+
+        /* neutrals */
+        --neutral-color-min: #fff;
+        --neutral-color-max: #000;
+
+        /* Swiper */
+        --swiper-pagination-color: #dca839;
+        --swiper-pagination-bullet-inactive-color: #ffffff;
+        --swiper-pagination-bullet-inactive-opacity: 1;
+        --swiper-pagination-bullet-size: 16px;
+        --swiper-pagination-bullet-horizontal-gap: 4px;
+        --swiper-pagination-bullets : 40px;
+        --swiper-pagination-bottom: -6px;
     }
 }
 
@@ -121,7 +155,6 @@ body {
 
 
 body {
-    background: #071728;
     color: rgb(var(--foreground-rgb));
 }
 

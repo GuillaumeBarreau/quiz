@@ -1,0 +1,3 @@
+.layout_container {
+    @apply dark:bg-[color:var(--background-primary-color)];
+}

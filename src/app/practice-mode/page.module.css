@@ -1,4 +1,6 @@
 .home_container {
-    @apply relative;
     min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
