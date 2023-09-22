@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ProviderStores } from '@/stores/provider'
 import { NextAuthProvider } from './_nextAuth/providers'
-import MainContainer from '@/components/MainContainer'
 import './globals.css'
 import styles from './layout.module.css'
 
@@ -22,9 +21,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${inter.className} ${styles.layout_container}`}>
                 <NextAuthProvider>
-                    <ProviderStores>
-                        <MainContainer>{children}</MainContainer>
-                    </ProviderStores>
+                    <ProviderStores>{children}</ProviderStores>
                 </NextAuthProvider>
                 <script> </script>
             </body>
