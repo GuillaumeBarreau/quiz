@@ -2,10 +2,12 @@
 
 import { useState } from 'react'
 import NavigationBar from '@/components/NavigationBar'
-import styles from './MainContainer.module.css'
+import styles from './MainContainerPracticeMode.module.css'
 import { PropsWithChildren } from '@/types'
 
-const MainContainer: React.FC<PropsWithChildren> = ({ children }) => {
+const MainContainerPracticeMode: React.FC<PropsWithChildren> = ({
+    children,
+}) => {
     const [navigationBarIsOpened, setNavigationBarIsOpened] = useState(true)
     const onClickToggleOpenedNavigationBar = () =>
         setNavigationBarIsOpened(
@@ -13,7 +15,7 @@ const MainContainer: React.FC<PropsWithChildren> = ({ children }) => {
         )
 
     return (
-        <main className={styles.mainContainer_wrapper}>
+        <main className={styles.mainContainerPracticeMode_wrapper}>
             <NavigationBar
                 onClickToggleOpenedNavigationBar={
                     onClickToggleOpenedNavigationBar
@@ -21,11 +23,11 @@ const MainContainer: React.FC<PropsWithChildren> = ({ children }) => {
                 NavigationBarIsOpened={navigationBarIsOpened}
             />
             <div
-                className={`${styles.mainContainer_content}${' '}
+                className={`${styles.mainContainerPracticeMode_content}${' '}
                     ${
                         navigationBarIsOpened
-                            ? styles.mainContainer_contentWithNavigationBarOpened
-                            : styles.mainContainer_contentWithNavigationBarClosed
+                            ? styles.mainContainerPracticeMode_contentWithNavigationBarOpened
+                            : styles.mainContainerPracticeMode_contentWithNavigationBarClosed
                     }
                 `}
             >
@@ -35,4 +37,4 @@ const MainContainer: React.FC<PropsWithChildren> = ({ children }) => {
     )
 }
 
-export default MainContainer
+export default MainContainerPracticeMode

@@ -1,16 +1,20 @@
 import { PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
-import MainContainer from './MainContainer.component'
+import MainContainerPracticeMode from './MainContainerPracticeMode.component'
 
 const defaultProps = {
     children: 'children content',
 }
 
 const setup = (props: PropsWithChildren) => {
-    return render(<MainContainer {...props}>{props.children}</MainContainer>)
+    return render(
+        <MainContainerPracticeMode {...props}>
+            {props.children}
+        </MainContainerPracticeMode>
+    )
 }
 
-describe('MainContainer component', () => {
+describe('MainContainerPracticeMode component', () => {
     it('should renders without crashing', () => {
         const { container } = setup(defaultProps)
         expect(container).toBeInTheDocument()
