@@ -1,4 +1,4 @@
-import AuthLogin from './AuthLogin/AuthLogin.component';
+import AuthLogin from './AuthLogin';
 
 export {
     AuthLogin,

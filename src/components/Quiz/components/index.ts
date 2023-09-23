@@ -4,6 +4,7 @@ import Header from './Header/Header.component';
 import Question from './Question/Question.component';
 import QuizAnswers from './QuizAnswers/QuizAnswers.component';
 import QuizResults from './QuizResults/QuizResults.component';
+import NavigationBarQuiz from './NavigationBarQuiz/NavigationBarQuiz.component';
 
 export {
     Answer,
@@ -12,4 +13,5 @@ export {
     Question,
     QuizAnswers,
     QuizResults,
+    NavigationBarQuiz,
 }

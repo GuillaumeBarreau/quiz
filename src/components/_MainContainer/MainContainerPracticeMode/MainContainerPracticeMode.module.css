@@ -8,7 +8,7 @@
 }
 
 .mainContainerPracticeMode_contentWithNavigationBarOpened {
-    @apply ml-[color:var(--navBar-width)];
+    @apply ml-[color:var(--navBar-width--hidden)];
 }
 
 .mainContainerPracticeMode_contentWithNavigationBarClosed {

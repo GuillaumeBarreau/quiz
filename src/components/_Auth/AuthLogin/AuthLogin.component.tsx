@@ -1,5 +1,3 @@
-'use client'
-
 import { BsFacebook, BsGithub, BsGoogle } from 'react-icons/bs'
 import AuthButton from '@/components/_Input/AuthButton'
 import styles from './AuthLogin.module.css'
@@ -83,10 +81,7 @@ const AuthLogin = () => {
                                 tabIndex={0}
                                 testId="navbar-login-desktop"
                             >
-                                <AuthButton
-                                    href="/api/auth/signin/facebook"
-                                    // onClick={() => signIn}
-                                >
+                                <AuthButton href="/api/auth/signin/facebook">
                                     Sign in
                                 </AuthButton>
                             </AnchorLink>
@@ -96,11 +91,7 @@ const AuthLogin = () => {
                                 tabIndex={0}
                                 testId="navbar-login-desktop"
                             >
-                                <AuthButton
-                                // onClick={() => signIn}
-                                >
-                                    Logout
-                                </AuthButton>
+                                <AuthButton>Logout</AuthButton>
                             </AnchorLink>
                         </div>
                     </div>
