@@ -1,0 +1,21 @@
+.authButton_container {
+    @apply flex flex-row items-center text-center w-full py-4 justify-center outline-none focus:outline-none align-middle transition-all duration-150 ease-in-out uppercase border border-solid font-bold  text-white text-xs  shadow hover:shadow-md rounded-md;
+    /* bg-${children}-regular border-${children}-regular active:bg-github-active active:border-github-active */
+    @apply bg-[var(--text-primary-color)];
+}
+
+.authButton_facebook {
+    @apply  bg-white border-facebook-regular w-20 h-16;
+}
+
+.authButton_github {
+    @apply  bg-white border-blue-950 w-20 h-16;
+}
+
+.authButton_twitter {
+    @apply  bg-white border-blue-950 w-20 h-16;
+}
+
+.authButton_google {
+    @apply  bg-white border-blue-950 w-20 h-16;
+}

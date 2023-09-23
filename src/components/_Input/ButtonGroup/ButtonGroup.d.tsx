@@ -1,3 +1,3 @@
 export interface IButtonGroup {
-    orientation: boolean
+    orientation?: boolean
 }

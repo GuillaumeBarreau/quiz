@@ -17,6 +17,8 @@
     --navBar-width:  240px;
     --navBar-width--hidden:  80px;
 
+    --text-primary-color: #0a1128;
+
     --primary-glow: conic-gradient(
         from 180deg at 50% 50%,
         #16abff33 0deg,
@@ -83,6 +85,7 @@
         --background-end-rgb: 0, 0, 0;
 
         --background-primary-color:  #1f2937;
+        --text-primary-color: #111b3c;
 
         --primary-glow: radial-gradient(
             rgba(1, 65, 255, 0.4),

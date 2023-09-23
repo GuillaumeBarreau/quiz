@@ -1,10 +1,10 @@
 'use client'
-import { SessionProvider } from 'next-auth/react'
+import { UserProvider } from '@auth0/nextjs-auth0/client'
 
 type Props = {
     children?: React.ReactNode
 }
 
 export const NextAuthProvider = ({ children }: Props) => {
-    return <SessionProvider>{children}</SessionProvider>
+    return <UserProvider loginUrl={'/practice-mode'}>{children}</UserProvider>
 }
