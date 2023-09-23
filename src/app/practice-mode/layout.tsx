@@ -1,9 +1,15 @@
 import { MainContainerPracticeMode } from '@/components/_MainContainer'
+// import { useUser } from '@auth0/nextjs-auth0/client'
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
-    return <MainContainerPracticeMode>{children}</MainContainerPracticeMode>
+function RootLayout({ children }: { children: React.ReactNode }) {
+    // const { user, isLoading } = useUser()
+    // console.log('user : ', user)
+
+    return (
+        <>
+            <MainContainerPracticeMode>{children}</MainContainerPracticeMode>
+        </>
+    )
 }
+
+export default RootLayout

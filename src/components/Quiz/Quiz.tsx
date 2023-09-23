@@ -5,7 +5,7 @@ import styles from './Quiz.module.css'
 import Header from './components/Header'
 import { EAnswerStatus, TAnswers, TCorrectAnswers } from '@/types'
 import { IQuiz } from './Quiz.d'
-import { QuizResults, QuizAnswers } from './components'
+import { QuizResults, QuizAnswers, NavigationBarQuiz } from './components'
 
 const Quiz: React.FC<IQuiz> = ({
     questionsArray,
@@ -43,7 +43,7 @@ const Quiz: React.FC<IQuiz> = ({
         const timer =
             status === EAnswerStatus.Correct
                 ? switchQuestionWithCorrectAnswer
-                : switchQuestionWithWrongAnswer 
+                : switchQuestionWithWrongAnswer
 
         if (status === EAnswerStatus.Correct) {
             setStateCurrentQuestionCorrect(true)
@@ -98,27 +98,36 @@ const Quiz: React.FC<IQuiz> = ({
                 maxQuestions={questionsArray.length}
                 course={quizName}
             />
-            {questions && (
-                <QuizAnswers
-                    currentQuestion={stateQuestionNumber}
-                    handleClickInputSelectAnswers={
-                        handleClickInputSelectAnswers
-                    }
-                    stateQuestionNumber={stateQuestionNumber}
-                    handleClickButtonSubmit={handleClickButtonSubmit}
-                    questionsArray={questionsArray}
-                    stateCurrentQuestionCorrect={stateCurrentQuestionCorrect}
-                    selectAnswers={stateAnswers}
-                    stateStatusShown={stateStatusShown}
-                    answers={stateAnswers}
-                />
-            )}
-            {questions && isLastQuestion && (
-                <QuizResults
-                    questionsArray={questionsArray}
-                    questionsIndexError={stateQuestionsIndexError}
-                />
-            )}
+            <div className={styles.quiz_wrapper}>
+                <NavigationBarQuiz
+                    count={questionsArray.length}
+                ></NavigationBarQuiz>
+                <div className={styles.quiz_content}>
+                    {questions && (
+                        <QuizAnswers
+                            currentQuestion={stateQuestionNumber}
+                            handleClickInputSelectAnswers={
+                                handleClickInputSelectAnswers
+                            }
+                            stateQuestionNumber={stateQuestionNumber}
+                            handleClickButtonSubmit={handleClickButtonSubmit}
+                            questionsArray={questionsArray}
+                            stateCurrentQuestionCorrect={
+                                stateCurrentQuestionCorrect
+                            }
+                            selectAnswers={stateAnswers}
+                            stateStatusShown={stateStatusShown}
+                            answers={stateAnswers}
+                        />
+                    )}
+                    {questions && isLastQuestion && (
+                        <QuizResults
+                            questionsArray={questionsArray}
+                            questionsIndexError={stateQuestionsIndexError}
+                        />
+                    )}
+                </div>
+            </div>
         </div>
     )
 }

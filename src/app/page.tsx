@@ -1,21 +1,25 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
 import Loader from '@/components/Loader/Loader.component'
-import Banner from '@/components/Banner'
+import { AuthLogin } from '@/components/_Auth'
+import { useUser } from '@auth0/nextjs-auth0/client'
+import Link from 'next/link'
 
 export default function Home() {
-    const { data: session, status } = useSession()
+    const { user, error, isLoading } = useUser()
 
-    if (status === 'loading') {
-        return <Loader />
+    if (error) return <div>{error.message}</div>
+
+    if (isLoading) return <Loader />
+
+    if (user) {
+        console.log('user : ', user)
     }
 
     return (
         <main>
-            {session && redirect('/practice-mode')}
-            <Banner />
+            {user && <Link href={'/practice-mode'}>practice-mode</Link>}
+            <AuthLogin />
         </main>
     )
 }

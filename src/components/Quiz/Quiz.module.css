@@ -1,4 +1,15 @@
 .quiz_container {
     @apply flex min-h-screen flex-col;
     @apply items-center;
+    @apply w-full;
+}
+
+.quiz_wrapper {
+    @apply flex;
+     @apply w-full;
+}
+
+.quiz_content {
+    @apply flex;
+    @apply w-full;
 }

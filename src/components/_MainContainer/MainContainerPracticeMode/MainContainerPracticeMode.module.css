@@ -1,16 +1,14 @@
 .mainContainerPracticeMode_wrapper {
     @apply flex justify-center;
     @apply min-h-screen;
-    @apply py-8 px-4;
 }
 
 .mainContainerPracticeMode_content {
     @apply w-full;
-    @apply px-4;
 }
 
 .mainContainerPracticeMode_contentWithNavigationBarOpened {
-    @apply ml-[color:var(--navBar-width)];
+    @apply ml-[color:var(--navBar-width--hidden)];
 }
 
 .mainContainerPracticeMode_contentWithNavigationBarClosed {

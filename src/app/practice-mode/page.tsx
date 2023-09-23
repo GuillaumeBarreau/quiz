@@ -8,10 +8,11 @@ import 'swiper/swiper-bundle.css'
 import 'swiper/css/autoplay'
 import 'swiper/css/a11y'
 import 'swiper/css/effect-fade'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
 const typedTrainingConfig = trainingConfig as unknown as ITrainingConfig
 
-const Page: React.FC = () => {
+const Page = async () => {
     return (
         <div className={styles.home_container}>
             <Categories categories={trainingConfig.categoriesList} />
@@ -28,4 +29,4 @@ const Page: React.FC = () => {
     )
 }
 
-export default Page
+export default withPageAuthRequired(Page, { returnTo: '/practice-mode' })
