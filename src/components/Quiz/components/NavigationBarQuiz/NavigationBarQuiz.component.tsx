@@ -1,20 +1,26 @@
 import { INavigationBarQuiz } from './NavigationBarQuiz'
+import styles from './NavigationBarQuiz.module.css'
 
 const NavigationBarQuiz: React.FC<INavigationBarQuiz> = ({ count }) => {
     return (
         <div
-            id="docs-sidebar"
-            className="w-[color:var(--navBar-width--hidden)] bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-[color:var(--background-primary-color)] dark:border-gray-700"
+            id="NavigationBarQuiz-component"
+            className={styles.navigationBarQuizWrapper}
         >
-            <nav className="hs-accordion-group p-6 w-full flex flex-col flex-wrap">
-                <ul className="space-y-1.5">
-                    {Array(count)
-                        .fill('')
-                        .map((_, index) => {
-                            return <li key={index}>{++index}</li>
-                        })}
-                </ul>
-            </nav>
+            <ul className={styles.navigationBarQuizContent}>
+                {Array(count)
+                    .fill('')
+                    .map((_, index) => {
+                        return (
+                            <li
+                                className={styles.navigationBarQuizItem}
+                                key={index}
+                            >
+                                {++index}
+                            </li>
+                        )
+                    })}
+            </ul>
         </div>
     )
 }

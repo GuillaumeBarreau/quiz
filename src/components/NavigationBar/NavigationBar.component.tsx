@@ -12,7 +12,7 @@ const NavigationBar: React.FC<INavigationBar> = ({
         NavigationBarIsOpened && (
             <div
                 id="docs-sidebar"
-                className="fixed hs-overlay w-[color:var(--navBar-width)] hs-overlay-open:translate-x-0 transform top-0 left-0 bottom-0 z-[60] w-64 bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-[color:var(--background-primary-color)] dark:border-gray-700"
+                className="fixed hs-overlay w-[color:var(--navBar-width)] hs-overlay-open:translate-x-0 transform top-0 left-0 bottom-0 z-[60] bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-[color:var(--background-primary-color)] dark:border-gray-700"
             >
                 <div className="px-6">Practice-mode</div>
                 <nav className="hs-accordion-group p-6 w-full flex flex-col flex-wrap">

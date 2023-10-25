@@ -1,4 +1,4 @@
-import { BsFacebook, BsGithub, BsGoogle } from 'react-icons/bs'
+import { BsGoogle } from 'react-icons/bs'
 import AuthButton from '@/components/_Input/AuthButton'
 import styles from './AuthLogin.module.css'
 import { ButtonGroup } from '@/components/_Input'
@@ -13,7 +13,7 @@ const AuthLogin = () => {
 
     return (
         <div className={styles.authLogin_container}>
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-start  min-h-50-screen rounded-xl bg-white ">
+            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-start  min-h-50-screen rounded-xl bg-white">
                 <Image
                     alt="test"
                     src={`/images/banner/wave.png`}
@@ -41,31 +41,9 @@ const AuthLogin = () => {
                                 testId="navbar-login-desktop"
                             >
                                 <AuthButton
-                                    network="github"
-                                    icon={<BsGithub {...optionsIcon} />}
-                                ></AuthButton>
-                            </AnchorLink>
-                            <AnchorLink
-                                href="/api/auth/login"
-                                className="btn btn-primary btn-margin"
-                                tabIndex={0}
-                                testId="navbar-login-desktop"
-                            >
-                                <AuthButton
                                     network="google"
                                     icon={<BsGoogle {...optionsIcon} />}
-                                ></AuthButton>
-                            </AnchorLink>
-                            <AnchorLink
-                                href="/api/auth/login"
-                                className="btn btn-primary btn-margin"
-                                tabIndex={0}
-                                testId="navbar-login-desktop"
-                            >
-                                <AuthButton
-                                    network="facebook"
-                                    icon={<BsFacebook {...optionsIcon} />}
-                                ></AuthButton>
+                                />
                             </AnchorLink>
                         </ButtonGroup>
                         <hr className="mt-6 border-b-1 border-blueGray-200" />
@@ -81,17 +59,12 @@ const AuthLogin = () => {
                                 tabIndex={0}
                                 testId="navbar-login-desktop"
                             >
-                                <AuthButton href="/api/auth/signin/facebook">
+                                <AuthButton
+                                    disabled
+                                    href="/api/auth/signin/facebook"
+                                >
                                     Sign in
                                 </AuthButton>
-                            </AnchorLink>
-                            <AnchorLink
-                                href="/api/auth/logout"
-                                className="btn btn-primary btn-margin"
-                                tabIndex={0}
-                                testId="navbar-login-desktop"
-                            >
-                                <AuthButton>Logout</AuthButton>
                             </AnchorLink>
                         </div>
                     </div>

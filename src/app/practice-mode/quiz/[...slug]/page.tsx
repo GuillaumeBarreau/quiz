@@ -1,37 +1,29 @@
+'use client'
+
 import Quiz from '@/components/Quiz/Quiz'
 import { IQuiz } from './types'
+import { useDispatch, useSelector } from 'react-redux'
+import Loader from '@/components/Loader'
+import { useEffect } from 'react'
+import { fetchQuiz } from '@/stores/features/quiz/quiz.utils'
 
-async function getData(quizName: string, category: string) {
-    const vercel_public_domain = process.env.NEXT_PUBLIC_VERCEL_URL
-
-    const DOMAIN =
-        vercel_public_domain ??
-        `${process.env.NEXT_PUBLIC_DB_HOST}:${process.env.NEXT_PUBLIC_DB_PORT}`
-
-    try {
-        const questionsFetch = await fetch(
-            `http://${DOMAIN}/api/practice-mode/quiz/${category}/${quizName}`,
-            { cache: 'no-store' }
-        )
-        const questions = await questionsFetch.json()
-
-        return {
-            questions,
-        }
-    } catch (error) {
-        return {
-            questions: {
-                data: [],
-            },
-        }
-    }
-}
-
-const Page: React.FC<IQuiz> = async ({ params }) => {
+const Page: React.FC<IQuiz> = ({ params }) => {
     const category = params?.slug[0]
     const quizName = params?.slug[1]
+    const dispatch = useDispatch()
 
-    const { questions } = await getData(quizName, category)
+    useEffect(() => {
+        // Appelez fetchQuiz ici avec les paramètres nécessaires
+        dispatch(fetchQuiz({ quizName: quizName, category: category }))
+    }, [dispatch])
+
+    const questions = useSelector((state) => {
+        return state.quizReducer.questions
+    })
+
+    if (!questions?.data?.length) {
+        return <Loader />
+    }
 
     return (
         <Quiz

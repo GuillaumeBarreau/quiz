@@ -4,7 +4,7 @@
 }
 
 .authLogin_content {
-    @apply md:w-1/2 lg:w-2/5 xl:w-1/3 ;
+    @apply w-[300px] md:w-1/2 lg:w-2/5 xl:w-1/4 ;
     @apply rounded-xl;
     background: white;
 }

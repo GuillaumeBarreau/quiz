@@ -1,26 +1,15 @@
-.button_container {
-    @apply text-blue-950 font-semibold text-xl text-center;
-    @apply mt-4;
-    @apply cursor-pointer select-none;
-    @apply bg-transparent;
-    @apply border-blue-950;
-    @apply rounded-lg;
-    min-width: 200px;
-    height: 60px;
-    border: 3px solid;
-    font-size: 20px;
-    padding: 8px 20px;
+.navigationBarQuizWrapper {
+    @apply w-[color:var(--navBar-width--hidden)] overflow-y-auto;
+    @apply bg-white pt-7 pb-10 lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:bg-[color:var(--background-primary-color)] ;
+    @apply border-r border-gray-200 dark:border-gray-700;
+    height: calc(100vh - 64px);
 }
 
-.button_container:hover {
-    @apply bg-blue-950;
-    @apply border-blue-950;
-    color: white;
+.navigationBarQuizContent {
+    @apply h-full;
+    @apply flex items-center flex-col justify-center;
 }
 
-.button_container:disabled {
-    @apply text-gray-600;
-    @apply cursor-not-allowed;
-    background-color: #f5f5f5;
-    border-color: transparent;
+.navigationBarQuizItem {
+    @apply p-2;
 }

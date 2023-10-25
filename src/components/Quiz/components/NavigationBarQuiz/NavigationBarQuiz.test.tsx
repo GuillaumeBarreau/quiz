@@ -1,14 +1,13 @@
 import { render } from '@testing-library/react'
-import NavigationBar from './NavigationBarQuiz.component'
+import NavigationBarQuiz from './NavigationBarQuiz.component'
 import { INavigationBarQuiz } from './NavigationBarQuiz'
 
 const defaultProps: INavigationBarQuiz = {
-    onClickToggleOpenedNavigationBar: jest.fn(),
-    NavigationBarIsOpened: false,
+    count: 10,
 }
 
-const setup = ({}: INavigationBarQuiz) => {
-    return render(<NavigationBar></NavigationBar>)
+const setup = (props: INavigationBarQuiz) => {
+    return render(<NavigationBarQuiz {...props}></NavigationBarQuiz>)
 }
 
 describe('INavigationBarQuiz component', () => {
