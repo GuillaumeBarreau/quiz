@@ -1,17 +1,28 @@
 import { withAuth } from "next-auth/middleware"
 
 export default withAuth({
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    authorized({ req, token }) {
-      return !!token
+    async authorized({ req, token }) {
+      try {
+          const res = await fetch(`${process.env.NEXTAUTH_URL}/api/session`,
+          {
+            method: 'GET',
+            headers: {
+              'x-auth0-token': req?.cookies?.get("appSession")?.value ?? "",
+            }}
+          )
+          const json = await res.json()
+          return !!json?.authenticated
+        } catch(e) {
+          return false
+        }
     },
   },
 })
 
 export const config = {
   matcher: [ 
-    "/home", 
     "/practice-mode/:path*"
   ],
 }

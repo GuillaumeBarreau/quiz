@@ -8,7 +8,6 @@ import 'swiper/swiper-bundle.css'
 import 'swiper/css/autoplay'
 import 'swiper/css/a11y'
 import 'swiper/css/effect-fade'
-import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
 const typedTrainingConfig = trainingConfig as unknown as ITrainingConfig
 
@@ -29,4 +28,4 @@ const Page = async () => {
     )
 }
 
-export default withPageAuthRequired(Page, { returnTo: '/practice-mode' })
+export default Page

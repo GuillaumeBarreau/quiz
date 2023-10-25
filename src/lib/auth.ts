@@ -15,15 +15,7 @@ export const authOptions : NextAuthOptions  = {
             
         }),
     ],
-    secret: process.env.AUTH_SECRET,
+    secret: process.env.AUTH0_SECRET,
 }
 
 export default NextAuth(authOptions)
-// authorizationParams={{
-//         redirect_uri: config.auth0CallbackUrl,
-//         connection: config.auth0PublicConnection,
-//         audience: config.auth0Audience,
-//         scope: 'read:current_user openid profile email',
-//         prompt: 'login',
-//       }}
-//       cacheLocation={'localstorage'}

@@ -1,7 +1,5 @@
 .home_container {
     @apply py-8 px-4;
+    @apply w-full flex items-center flex-col;
     min-height: calc(100vh - 70px);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }

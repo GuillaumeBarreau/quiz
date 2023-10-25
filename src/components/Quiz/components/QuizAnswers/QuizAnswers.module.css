@@ -1,4 +1,9 @@
 .quiz_question_wrapper {
+    @apply w-full;
+     @apply flex flex-col;
+}
+
+.quiz_question_content {
     @apply flex w-full;
     background-color: #f5f5f5;
     min-height: calc(100vh - 76px);
