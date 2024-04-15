@@ -1,0 +1,17 @@
+.productCardWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    -webkit-animation-duration: 0.4s;
+            animation-duration: 0.4s;
+        
+}
+
+.productCardWrapperDisabled {
+   opacity: 0.8;
+   cursor: not-allowed;
+   -webkit-filter: grayscale(1);
+           filter: grayscale(1)
+}

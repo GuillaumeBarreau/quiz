@@ -1,5 +1,45 @@
 .home_container {
     @apply py-8 px-4;
     @apply w-full flex items-center flex-col;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 4.375rem);
+}
+
+.catalogueProductsWrapper {
+    padding: 0 3rem;
+    max-width: 70rem;
+    margin: 0 auto 5rem;
+}
+
+.catalogueProductsItemWrapper {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 0.5rem;
+    -moz-column-gap: 1.5rem;
+    column-gap: 1.5rem;
+}
+
+.catalogueProductsItemWrapperWithoutData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20rem;
+    border: 0.0625rem solid #e0e0e0;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+}
+
+.catalogueProductsItem {
+    min-width: auto;
+    list-style-type: none;
+}
+
+@media screen and (max-width: 600px) {
+    .catalogueProductsWrapper {
+        padding: 0 1.5rem;
+    }
+    .catalogueProductsItemWrapper {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 }

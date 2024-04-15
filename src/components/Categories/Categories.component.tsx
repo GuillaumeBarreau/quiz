@@ -1,7 +1,7 @@
 import React from 'react'
 import { TCategories } from './Categories.d'
 import styles from './Categories.module.css'
-import { CardCategory } from '@/components/_Card'
+import { CategoryCard } from '@/components/_Card'
 
 const Categories: React.FC<TCategories> = (props) => {
     const { categories } = props
@@ -13,7 +13,7 @@ const Categories: React.FC<TCategories> = (props) => {
     return (
         <div className={styles.categories_container}>
             {categories?.map((category) => (
-                <CardCategory key={category} category={category} />
+                <CategoryCard key={category} category={category} />
             ))}
         </div>
     )
