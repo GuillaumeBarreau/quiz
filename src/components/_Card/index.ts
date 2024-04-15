@@ -1,11 +1,11 @@
 import CardFormation from './CardFormation/CardFormation.component';
-import CardCategory from './CardCategory/CardCategory.component';
+import CategoryCard from './CategoryCard/CategoryCard.component';
 import CardSection from './CardSection/CardSection.component';
-import CardWithText from './CardWithText/CardWithText.component';
+import ProductCard from './ProductCard/ProductCard.component';
 
 export {
     CardFormation,
-    CardCategory,
-    CardWithText,
-    CardSection
+    CategoryCard,
+    CardSection,
+    ProductCard
 }

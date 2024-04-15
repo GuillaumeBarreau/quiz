@@ -1,6 +1,5 @@
 'use client'
 
-import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import { INavigationBar } from './NavigationBar'
 
@@ -39,7 +38,7 @@ const NavigationBar: React.FC<INavigationBar> = ({
                                 Home
                             </li>
                         </Link>
-                        <li onClick={() => signOut()}>
+                        {/* <li onClick={() => signOut()}>
                             <a className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300">
                                 <svg
                                     className="w-3.5 h-3.5"
@@ -53,7 +52,7 @@ const NavigationBar: React.FC<INavigationBar> = ({
                                 </svg>
                                 logout
                             </a>
-                        </li>
+                        </li> */}
                         <li onClick={onClickToggleOpenedNavigationBar}>
                             <svg
                                 className="w-3.5 h-3.5"

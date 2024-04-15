@@ -1,0 +1,31 @@
+@import "@/styles/colors.scss";
+
+.productCardRatingWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.productCardRatingName {
+    display: flex;
+}
+
+.productCardRatingName > :first-child {
+    margin-right: 0.25rem;
+}
+
+.productCardRatingScore > svg {
+    height: 0.75rem;
+    width: 0.75rem;
+}
+
+.productCardRatingScore > :nth-child(2) {
+    font-weight: 700;
+    color: $text;
+}
+
+.productCardRatingText {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    color: $text-light;
+}

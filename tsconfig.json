@@ -25,10 +25,10 @@
     },
     "ts-node": {
         "compilerOptions": {
-        "module": "ESNext",
-        "moduleResolution": "Node"
+            "module": "ESNext",
+            "moduleResolution": "Node"
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/auth/**/*.js"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
     "exclude": ["node_modules"]
 }

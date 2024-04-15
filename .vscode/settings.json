@@ -1,7 +1,5 @@
 {
-    "css.customData": [
-        ".vscode/tailwind.json"
-    ],
+    "css.customData": [".vscode/tailwind.json"],
     "conventionalCommits.scopes": [
         "core",
         "stores",
@@ -11,8 +9,5 @@
         "test",
         "auth0"
     ],
-    "cSpell.words": [
-        "NEXTAUTH",
-        "Swiper"
-    ]
+    "cSpell.words": ["NEXTAUTH", "Swiper", "testid"]
 }
